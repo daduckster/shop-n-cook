@@ -6,10 +6,123 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shop'n'Cook</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Lobster&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
   <script src="main.js" defer></script>
 </head>
 
 <body>
+
+  <header class="hero">
+    <figure>
+      <img class="hero__img" src="./assets/images/hero-mobile-img.png" alt="photo-with-mint">
+      <div class="hero__img-darken"></div>
+    </figure>
+
+    <figure>
+      <img class="hero__bag-svg" src="./assets/images/bag.svg" alt="image-of-bag-handle-and-soup-spoon">
+    </figure>
+
+    <div class="hero_logo-container">
+      <p class="hero_logo-container__logo">Shop’n’Cook</p>
+      <p class="hero_logo-container__slogan">Your shopping list and cook book in one app</p>
+    </div>
+  </header>
+
+  <div class="content-container">
+    <section class="button">
+      <input class="button__new-recipe-btn" type="button" aria-label="button for adding a new recipe"
+             value="+ Add new Recipe">
+    </section>
+
+    <form class="search" action="">
+      <input class="search__input" type="text" aria-label="searchbar for searching through your recipes"
+             name="recipes-search" placeholder="Search in Your Recipes">
+
+      <section class="search__specifications">
+        <img class="search__specifications__switch-btn" type="button"
+             aria-label="button for turning on or off searching through list of ingredients"
+             src="./assets/icons/icon-off.svg" alt="switch-button-in-position-off">
+        <p class="search__specifications__text">Including ingredients</p>
+      </section>
+    </form>
+
+    <main class="main-empty">
+      <section class="main-empty__placeholder-container">
+        <p class="main-empty__placeholder-container__placeholder">Place for your new recipes</p>
+      </section>
+    </main>
+
+    <main class="main-recepies hidden">
+      <header class="main-recepies__header">
+        <p class="main-recepies__header__header-text">Your Recipes</p>
+      </header>
+
+      <nav class="main-recepies__nav">
+        <input type="button" aria-label="section with main dish recipes" value="Main">
+        <input type="button" aria-label="section with breakfast recipes" value="Breakfast">
+        <input type="button" aria-label="section with dessert recipes" value="Dessert">
+        <input type="button" aria-label="section with snack recipes" value="Snack">
+      </nav>
+
+      <section class="main-recepies__recipes-container">
+        <!--  DOM-ELEMENTS //////////////////////////////-->
+        <article class="recipe hidden">
+          <details class="recipe__container">
+
+            <summary class="recipe__name-drop" aria-label="opens and closes recipe contents">
+              <p class="recipe__name-drop__dish-name">Chicken soup</p>
+              <img class="recipe__name-drop__icon" src="./assets/icons/summary-closed.svg" alt="arrow-right-icon">
+            </summary>
+
+            <form action="">
+              <fieldset class="recipe__ingredients">
+
+                <legend class="recipe__ingredients__legend">Ingredients:</legend>
+
+                <input class="recipe__ingredients__checkbox" type="checkbox" name="ingredient" value="Chicken 300gr"
+                       id="Chicken-300gr">
+                <label class="recipe__ingredients__label" for="Chicken-300gr">Chicken 300gr</label>
+
+                <input class="recipe__ingredients__checkbox" type="checkbox" name="ingredient" value="Potatoes 300gr"
+                       id="Potatoes-300gr">
+                <label class="recipe__ingredients__label" for="Potatoes-300gr">Potatoes 300gr</label>
+
+              </fieldset>
+            </form>
+
+            <section class="recipe__recipe-text">
+              <header class="recipe__recipe-text__header">
+                <p>Recipe</p>
+              </header>
+
+              <p class="recipe__recipe-text__instructions">Boil chicken for 30 min, cut vegetables, add vegetables to
+                chicken, boil for 15 min</p>
+            </section>
+
+            <section class="recipe__buttons">
+              <input type="button" aria-label="button to pin recipe to the top of your list" value="Send to Top">
+              <input type="button" aria-label="button to edit your recipe" value="Edit Recipe">
+            </section>
+
+          </details>
+        </article>
+        <!--  DOM-ELEMENTS //////////////////////////////-->
+      </section>
+    </main>
+
+    <form class="new-recipe hidden" action=""></form>
+
+  </div>
+
+  </main>
+
+
+
+
+
 
 </body>
 
