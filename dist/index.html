@@ -61,10 +61,14 @@
       </header>
 
       <nav class="main-recepies__nav">
-        <input type="button" aria-label="section with main dish recipes" value="Main">
-        <input type="button" aria-label="section with breakfast recipes" value="Breakfast">
-        <input type="button" aria-label="section with dessert recipes" value="Dessert">
-        <input type="button" aria-label="section with snack recipes" value="Snack">
+        <input class="main-recepies__nav__main-btn" type="button" aria-label="section with main dish recipes"
+               value="Main">
+        <input class="main-recepies__nav__breakfast-btn" type="button" aria-label="section with breakfast recipes"
+               value="Breakfast">
+        <input class="main-recepies__nav__dessert-btn" type="button" aria-label="section with dessert recipes"
+               value="Dessert">
+        <input class="main-recepies__nav__snack-btn" type="button" aria-label="section with snack recipes"
+               value="Snack">
       </nav>
 
       <section class="main-recepies__recipes-container">
@@ -103,8 +107,10 @@
             </section>
 
             <section class="recipe__buttons">
-              <input type="button" aria-label="button to pin recipe to the top of your list" value="Send to Top">
-              <input type="button" aria-label="button to edit your recipe" value="Edit Recipe">
+              <input class="recipe__buttons__send-to-top" type="button"
+                     aria-label="button to pin recipe to the top of your list" value="Send to Top">
+              <input class="recipe__buttons__edit" type="button" aria-label="button to edit your recipe"
+                     value="Edit Recipe">
             </section>
 
           </details>
@@ -113,11 +119,84 @@
       </section>
     </main>
 
-    <form class="new-recipe hidden" action=""></form>
+    <form class="new-recipe hidden" action="">
+      <header class="new-recipe__header">
+        <p>New Recipe</p>
+      </header>
+
+      <fieldset class="new-recipe__fieldset">
+        <label class="new-recipe__fieldset__name-label" for="name-of-the-dish">Name of the dish</label>
+        <input class="new-recipe__fieldset__name-input" type="text" name="name-of-the-dish" id="name-of-the-dish">
+
+        <label class="new-recipe__fieldset__ingredients-label" for="ingredients">Ingredients</label>
+        <input class="new-recipe__fieldset__ingredients-input" type="text" name="ingredients" id="ingredients">
+
+        <div class="new-recipe__fieldset__input-nest">
+          <input class="new-recipe__fieldset__weight" type="number" aria-label="input for weight of ingredient"
+                 name="weight" id="weight" placeholder="300">
+
+          <input class="new-recipe__fieldset__measurements" list="measurements"
+                 aria-label="input for measurement associated with weight" name="measurements" placeholder="g">
+          <datalist id="measurements">
+            <option value="gr">
+            <option value="kg">
+            <option value="L">
+            <option value="ml">
+            <option value="tsp">
+            <option value="tbsp">
+            <option value="oz">
+            <option value="lbs">
+            <option value="pt">
+            <option value="qt">
+            <option value="gal">
+          </datalist>
+
+          <input class="new-recipe__fieldset__submit" type="submit" aria-label="add new ingredient to the list"
+                 value="+ Add">
+        </div>
+
+      </fieldset>
+
+      <section>
+        <ul class="new-recipe__ingredients-list">
+          <!--  DOM-ELEMENTS //////////////////////////////-->
+          <li class="new-recipe__ingredients-list__ingredient">
+            <img class="new-recipe__ingredients-list__ingredient__remove-icon" type="button"
+                 src="./assets/icons/icon-remove.svg" alt="icon-with-minus"
+                 aria-label="remove ingredient from the list">
+            <p class="new-recipe__ingredients-list__ingredient__ingredient-text">Chicken 300gr</p>
+          </li>
+
+          <li class="new-recipe__ingredients-list__ingredient">
+            <img class="new-recipe__ingredients-list__ingredient__remove-icon" type="button"
+                 src="./assets/icons/icon-remove.svg" alt="icon-with-minus"
+                 aria-label="remove ingredient from the list">
+            <p class="new-recipe__ingredients-list__ingredient__ingredient-text">Potatoes 300gr</p>
+          </li>
+          <!--  DOM-ELEMENTS //////////////////////////////-->
+        </ul>
+      </section>
+
+      <section class="new-recipe__recipe-text">
+        <label class="new-recipe__recipe-text__label" for="recipe">Recipe</label>
+        <textarea class="new-recipe__recipe-text__textarea" name="recipe" id="recipe"></textarea>
+      </section>
+
+      <section class="new-recipe__category">
+        <label class="new-recipe__category__label" for="category">Category</label>
+        <select class="new-recipe__category__dropdown" aria-label="choose category of your recipe" name="category"
+                id="category">
+          <option value="main">Main</option>
+          <option value="breakfast">Breakfast</option>
+          <option value="dessert">Dessert</option>
+          <option value="snack">Snack</option>
+        </select>
+      </section>
+
+    </form>
 
   </div>
 
-  </main>
 
 
 
