@@ -21,20 +21,30 @@ body {
 .heading {
 	font-family: 'Lobster Two', cursive;
 	&--your-recipes {
+		color: $accent;
+		font-size: 1.7rem;
 	}
 	&--new-recipe {
 	}
 }
 
-.text {
-	&--toggle {
-	}
-	&--section-heading {
-	}
+.section-heading {
+	font-weight: bold;
+	font-size: 1.13rem;
 }
 
 .input {
+	width: 100%;
+	font-family: 'Comfortaa', cursive;
+	font-size: 1rem;
+	color: $font;
+	background-color: $inputs;
+	border: none;
+	border-radius: 8px;
+	padding: 0.4rem 0.5rem 0.3rem 0.4rem;
+
 	&--search {
+		border: 1px solid $section-dark;
 	}
 	&--short {
 	}
@@ -47,6 +57,9 @@ body {
 	font-family: 'Comfortaa', cursive;
 	font-size: 1rem;
 	border-radius: 8px;
+	padding: 0.5rem 0 0.4rem 0;
+	cursor: pointer;
+
 	&--new-recipe {
 		padding: 0.9rem 0 0.7rem 0;
 		width: 100%;
@@ -57,15 +70,34 @@ body {
 		&--active {
 		}
 		&--disabled {
+			background-color: $section-dark;
+			color: $font;
+			border-radius: 0;
+			font-size: 0.88rem;
 		}
 	}
 	&--send-to-top {
+		margin-bottom: 0.7rem;
+		padding: 0.5rem 1rem 0.4rem 1rem;
 	}
 	&--add {
 	}
 }
 
-.link {
+.toggle-btn {
+	width: 2.25rem;
+	height: 1.25rem;
+	background-size: cover;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+
+	&--disabled {
+		background: url('../dist/assets/icons/icon-off.svg');
+	}
+	&--active {
+		background: url('../dist/assets/icons/icon-on.svg');
+	}
 }
 
 .hidden {

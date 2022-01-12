@@ -1,0 +1,105 @@
+@import './_variables';
+
+.search {
+	margin-top: 1rem;
+
+	&__toggle {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		margin-top: 0.5rem;
+		cursor: pointer;
+
+		p {
+			font-size: 0.88rem;
+			margin-left: 0.5rem;
+			color: $accent;
+		}
+	}
+}
+
+.main-recipes {
+	margin-top: 1.5rem;
+
+	&__nav {
+		display: grid;
+		background-color: $section-dark;
+		grid-template-columns: repeat(4, 1fr);
+		margin: 0.5rem -1rem 0 -1rem;
+	}
+
+	&__recipes-container {
+		height: 100%;
+	}
+}
+
+.recipe {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	background-color: $section-light;
+	border-radius: 8px;
+	font-family: 'Poppins', sans-serif;
+
+	summary {
+		cursor: pointer;
+		background-color: $section-dark;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0.7rem;
+		border-radius: 8px;
+		font-family: 'Comfortaa', cursive;
+
+		&:active {
+			background-color: $section-dark-active;
+		}
+
+		p {
+			margin-right: 1rem;
+		}
+
+		.dropdown {
+			&--closed {
+				content: url('../dist/assets/icons/summary-closed.svg');
+			}
+
+			&--opened {
+				content: url('../dist/assets/icons/summary-opened.svg');
+			}
+		}
+	}
+
+	&__ingredients {
+		display: flex;
+		flex-direction: column;
+		margin: 0.7rem;
+
+		label,
+		input {
+			display: inline-block;
+		}
+	}
+
+	&__instructions {
+		margin: 0.7rem;
+	}
+
+	&__buttons {
+		margin: 1rem 0.7rem 0.7rem 0.7rem;
+
+		&__link {
+			font-family: 'Comfortaa', cursive;
+			color: $font;
+			font-size: 1rem;
+			border: none;
+			border-bottom: 1.8px solid $font;
+			background-color: transparent;
+			margin-left: 0.5rem;
+		}
+	}
+
+	h3 {
+		margin-top: 0.5rem;
+		font-size: 1rem;
+	}
+}
