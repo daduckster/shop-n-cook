@@ -1,6 +1,8 @@
 @import './_variables';
 
-* {
+*,
+*::before,
+*::after {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -10,4 +12,62 @@ body {
 	font-family: 'Comfortaa', cursive;
 	color: $font;
 	font-size: 1rem;
+	background-color: $bg;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.heading {
+	font-family: 'Lobster Two', cursive;
+	&--your-recipes {
+	}
+	&--new-recipe {
+	}
+}
+
+.text {
+	&--toggle {
+	}
+	&--section-heading {
+	}
+}
+
+.input {
+	&--search {
+	}
+	&--short {
+	}
+}
+
+.btn {
+	background-color: $accent;
+	border: none;
+	color: $bg;
+	font-family: 'Comfortaa', cursive;
+	font-size: 1rem;
+	border-radius: 8px;
+	&--new-recipe {
+		padding: 0.9rem 0 0.7rem 0;
+		width: 100%;
+		&--short {
+		}
+	}
+	&--nav {
+		&--active {
+		}
+		&--disabled {
+		}
+	}
+	&--send-to-top {
+	}
+	&--add {
+	}
+}
+
+.link {
+}
+
+.hidden {
+	display: none;
 }

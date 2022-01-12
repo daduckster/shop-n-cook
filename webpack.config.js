@@ -13,7 +13,6 @@ module.exports = {
 			},
 		],
 	},
-	plugins: [ require('autoprefixer') ],
 	mode: 'development',
 	entry: './src/index.js',
 	output: {

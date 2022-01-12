@@ -8,7 +8,7 @@
   <title>Shop'n'Cook</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Lobster&family=Poppins:wght@400;600&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Lobster+Two:ital,wght@1,400&family=Poppins:wght@400;600&display=swap"
         rel="stylesheet">
   <script src="main.js" defer></script>
 </head>
@@ -16,54 +16,49 @@
 <body>
 
   <header class="hero">
-    <figure>
-      <img class="hero__img" src="./assets/images/hero-mobile-img.png" alt="photo-with-mint">
-      <div class="hero__img-darken"></div>
-    </figure>
-
-    <figure>
-      <img class="hero__bag-svg" src="./assets/images/bag.svg" alt="image-of-bag-handle-and-soup-spoon">
-    </figure>
-
     <div class="hero__logo-container">
-      <h1 class="header--logo">Shop’n’Cook</h1>
-      <p class="text--slogan">Your shopping list and cook book in one app</p>
+      <h1 class="heading">Shop’n’Cook</h1>
+      <p class="text">Your shopping list and cook book in one app</p>
     </div>
+
+    <figure>
+      <img class="hero__bag-svg " src="./assets/images/bag.svg" alt="image-of-bag-handle-and-soup-spoon">
+    </figure>
+
+    <div class="hero__background"></div>
   </header>
 
   <div class="content-container">
-    <input class="btn--new-recepie" type="button" aria-label="button for adding a new recipe" value="+ Add new Recipe">
+    <button class="btn btn--new-recipe" type="button" aria-label="button for adding a new recipe"> + Add new Recipe
+    </button>
 
-
-    <form class="search" action="">
-      <input class="input--search" type="text" aria-label="searchbar for searching through your recipes"
+    <form class="search hidden" action="">
+      <input class="input input--search" type="text" aria-label="searchbar for searching through your recipes"
              name="recipes-search" placeholder="Search in Your Recipes">
 
       <section class="search__toggle">
-        <img class="search__toggle__btn--disabled" type="button"
-             aria-label="button for turning on or off searching through list of ingredients"
-             src="./assets/icons/icon-off.svg" alt="switch-button-in-position-off">
-        <img class="search__toggle__btn--active" type="button"
-             aria-label="button for turning on or off searching through list of ingredients"
-             src="./assets/icons/icon-on.svg" alt="switch-button-in-position-on">
-        <p class="search__toggle__text">Including ingredients</p>
+        <button class="search__toggle__btn--disabled"
+                aria-label="button for turning on or off searching through list of ingredients"></button>
+        <p class="text text--toggle">Including ingredients</p>
       </section>
     </form>
 
     <main class="main-empty">
-      <p class="main-empty__placeholder">Place for your new recipes</p>
+
+      <p class="heading">Place for your new recipes</p>
+
     </main>
 
     <main class="main-recipes hidden">
       <header>
-        <h2 class="header--your-recipes">Your Recipes</h2>
+        <h2 class="heading heading--your-recipes">Your Recipes</h2>
       </header>
 
       <nav class="main-recipes__navigation">
-        <button class="btn" aria-label="section with main dish recipes">Main</button>
-        <button class="btn" aria-label="section with breakfast recipes">Breakfast</button>
-        <button class="btn" aria-label="section with dessert recipes">Dessert</button>
-        <button class="btn" aria-label="section with snack recipes">Snack</button>
+        <button class="btn btn--nav--active" aria-label="section with main dish recipes">Main</button>
+        <button class="btn btn--nav--disabled" aria-label="section with breakfast recipes">Breakfast</button>
+        <button class="btn btn--nav--disabled" aria-label="section with dessert recipes">Dessert</button>
+        <button class="btn btn--nav--disabled" aria-label="section with snack recipes">Snack</button>
       </nav>
 
       <div class="main-recipes__recipes-container">
@@ -71,33 +66,33 @@
         <details class="recipe">
 
           <summary class="recipe__name-drop" aria-label="opens and closes recipe contents">
-            <p>Chicken soup</p>
+            <p class="text text--section-heading">Chicken soup</p>
             <img src="./assets/icons/summary-closed.svg" alt="arrow-right-icon">
           </summary>
 
           <form class="recipe__ingredients" action="">
             <header>
-              <h3 class="section-header">Ingredients:</h3>
+              <h3 class="section-heading">Ingredients:</h3>
             </header>
 
             <input type="checkbox" name="ingredient" value="Chicken 300gr" id="Chicken-300gr">
-            <label class="text--checkbox" for="Chicken-300gr">Chicken 300gr</label>
+            <label class="text" for="Chicken-300gr">Chicken 300gr</label>
 
             <input type="checkbox" name="ingredient" value="Potatoes 300gr" id="Potatoes-300gr">
-            <label class="text--checkbox" for="Potatoes-300gr">Potatoes 300gr</label>
+            <label class="text" for="Potatoes-300gr">Potatoes 300gr</label>
           </form>
 
           <section class="recipe__instructions">
             <header>
-              <h3 class="section-header">Recipe</h3>
+              <h3 class="section-heading">Recipe</h3>
             </header>
 
-            <p class="text--recipe">Boil chicken for 30 min, cut vegetables, add vegetables to
+            <p class="text">Boil chicken for 30 min, cut vegetables, add vegetables to
               chicken, boil for 15 min</p>
           </section>
 
           <div class="recipe__buttons">
-            <input class="btn--send-to-top" type="button" aria-label="button to pin recipe to the top of your list"
+            <input class="btn btn--send-to-top" type="button" aria-label="button to pin recipe to the top of your list"
                    value="Send to Top">
             <input class="link" type="button" aria-label="button to edit your recipe" value="Edit Recipe">
           </div>
@@ -109,24 +104,24 @@
 
     <form class="new-recipe hidden" action="">
       <header>
-        <h2 class="header--new-recipe">New Recipe</h2>
+        <h2 class="heading heading--new-recipe">New Recipe</h2>
       </header>
 
       <div class="form-group">
-        <label for="name-of-the-dish">Name of the dish</label>
+        <label class="text text--section-heading" for="name-of-the-dish">Name of the dish</label>
         <input class="input" type="text" name="name-of-the-dish" id="name-of-the-dish">
       </div>
 
       <fieldset class="form-group">
-        <label for="ingredients">Ingredients</label>
+        <label class="text text--section-heading" for="ingredients">Ingredients</label>
         <input class="input" type="text" name="ingredients" id="ingredients">
 
         <div class="new-recipe__input-nest">
-          <input class="input--short" type="number" aria-label="input for weight of ingredient" name="weight"
+          <input class="input input--short" type="number" aria-label="input for weight of ingredient" name="weight"
                  id="weight" placeholder="300">
 
-          <input class="input--short" list="measurements" aria-label="input for measurement associated with weight"
-                 name="measurements" placeholder="g">
+          <input class="input input--short dropdown" list="measurements"
+                 aria-label="input for measurement associated with weight" name="measurements" placeholder="g">
           <datalist id="measurements">
             <option value="gr">
             <option value="kg">
@@ -141,38 +136,37 @@
             <option value="gal">
           </datalist>
 
-          <input class="new-recipe__add button" type="submit" aria-label="add new ingredient to the list" value="+ Add">
+          <button class="btn btn--add" aria-label="add new ingredient to the list">+ Add</button>
         </div>
 
       </fieldset>
 
 
-      <ul class="new-recipe__ingredients-list">
+      <ul>
         <!--  DOM-ELEMENTS //////////////////////////////-->
-        <li class="new-recipe__ingredients-list__ingredient">
-          <img class="new-recipe__ingredients-list__ingredient__remove-icon" type="button"
-               src="./assets/icons/icon-remove.svg" alt="icon-with-minus" aria-label="remove ingredient from the list">
-          <p class="new-recipe__ingredients-list__ingredient__ingredient-text">Chicken 300gr</p>
+        <li>
+          <img class="new-recipe__remove-icon" type="button" src="./assets/icons/icon-remove.svg" alt="icon-with-minus"
+               aria-label="remove ingredient from the list">
+          <p class="text">Chicken 300gr</p>
         </li>
 
-        <li class="new-recipe__ingredients-list__ingredient">
-          <img class="new-recipe__ingredients-list__ingredient__remove-icon" type="button"
-               src="./assets/icons/icon-remove.svg" alt="icon-with-minus" aria-label="remove ingredient from the list">
-          <p class="new-recipe__ingredients-list__ingredient__ingredient-text">Potatoes 300gr</p>
+        <li>
+          <img class="new-recipe__remove-icon" type="button" src="./assets/icons/icon-remove.svg" alt="icon-with-minus"
+               aria-label="remove ingredient from the list">
+          <p class="text">Potatoes 300gr</p>
         </li>
         <!--  DOM-ELEMENTS //////////////////////////////-->
       </ul>
 
 
       <div class="new-recipe__recipe-text">
-        <label class="new-recipe__recipe-text__label" for="recipe">Recipe</label>
-        <textarea class="new-recipe__recipe-text__textarea" name="recipe" id="recipe"></textarea>
+        <label class="text text--section-heading" for="recipe">Recipe</label>
+        <textarea name="recipe" id="recipe"></textarea>
       </div>
 
       <div class="new-recipe__category">
-        <label class="new-recipe__category__label" for="category">Category</label>
-        <select class="new-recipe__category__dropdown" aria-label="choose category of your recipe" name="category"
-                id="category">
+        <label class="text text--section-heading" for="category">Category</label>
+        <select class="dropdown" aria-label="choose category of your recipe" name="category" id="category">
           <option value="main">Main</option>
           <option value="breakfast">Breakfast</option>
           <option value="dessert">Dessert</option>
@@ -180,9 +174,19 @@
         </select>
       </div>
 
+      <input class="btn btn--new-recepie--short" type="submit" aria-label="button for adding a new recipe"
+             value="+ Add new Recipe">
     </form>
 
+    <footer>
+      <p>© 2022 by Olya Vlasak (Front-End, UI/UX Design)</p>
+      <p>vlasakolga@gmail.com</p>
+    </footer>
+
+
   </div>
+
+
 
 
 </body>
