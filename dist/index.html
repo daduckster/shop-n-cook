@@ -28,19 +28,14 @@
     <div class="hero__background"></div>
   </header>
 
-  <div class="content-container">
-    <button class="btn btn--new-recipe" type="button" aria-label="button for adding a new recipe"> + Add new Recipe
+  <div class="content-container-mobile">
+    <button class="btn btn--new-recipe content-container-mobile__new-recipe-btn" type="button"
+            aria-label="button for adding a new recipe"> + Add
+      new
+      Recipe
     </button>
 
-    <main class="main-empty hidden">
-
-      <div class="main-empty__wrapper">
-        <p class="heading">Place for your new recipes</p>
-      </div>
-
-    </main>
-
-    <form class="search " action="">
+    <form class="search" action="">
       <input class="input input--search" type="text" aria-label="searchbar for searching through your recipes"
              name="recipes-search" placeholder="Search in Your Recipes">
 
@@ -64,8 +59,10 @@
       </nav>
 
       <div class="main-recipes__recipes-container">
-        <!--  DOM-ELEMENTS //////////////////////////////-->
-        <details class="recipe">
+
+        <!-- * DOM-ELEMENTS //////////////////////////////-->
+
+        <!-- <details class="recipe">
 
           <summary aria-label="opens and closes recipe contents">
             <p class="section-heading">Chicken soup</p>
@@ -105,84 +102,14 @@
                    value="Edit Recipe">
           </div>
 
-        </details>
-
-        <!-- <details class="recipe">
-
-          <summary aria-label="opens and closes recipe contents">
-            <p class="section-heading">Chicken soup with some super really long name</p>
-            <img src="./assets/icons/summary-closed.svg" alt="arrow-right-icon">
-          </summary>
-
-          <form class="recipe__ingredients" action="">
-            <header>
-              <h3 class="section-heading">Ingredients:</h3>
-            </header>
-
-            <input type="checkbox" name="ingredient" value="Chicken 300gr" id="Chicken-300gr">
-            <label for="Chicken-300gr">Chicken 300gr</label>
-
-            <input type="checkbox" name="ingredient" value="Potatoes 300gr" id="Potatoes-300gr">
-            <label for="Potatoes-300gr">Potatoes 300gr</label>
-          </form>
-
-          <section class="recipe__instructions">
-            <header>
-              <h3 class="section-heading">Recipe</h3>
-            </header>
-
-            <p>Boil chicken for 30 min, cut vegetables, add vegetables to
-              chicken, boil for 15 min</p>
-          </section>
-
-          <div class="recipe__buttons">
-            <input class="btn btn--send-to-top" type="button" aria-label="button to pin recipe to the top of your list"
-                   value="Send to Top">
-            <input class="link" type="button" aria-label="button to edit your recipe" value="Edit Recipe">
-          </div>
-
-        </details>
-
-        <details class="recipe">
-
-          <summary aria-label="opens and closes recipe contents">
-            <p class="section-heading">Chicken soup</p>
-            <img src="./assets/icons/summary-closed.svg" alt="arrow-right-icon">
-          </summary>
-
-          <form class="recipe__ingredients" action="">
-            <header>
-              <h3 class="section-heading">Ingredients:</h3>
-            </header>
-
-            <input type="checkbox" name="ingredient" value="Chicken 300gr" id="Chicken-300gr">
-            <label for="Chicken-300gr">Chicken 300gr</label>
-
-            <input type="checkbox" name="ingredient" value="Potatoes 300gr" id="Potatoes-300gr">
-            <label for="Potatoes-300gr">Potatoes 300gr</label>
-          </form>
-
-          <section class="recipe__instructions">
-            <header>
-              <h3 class="section-heading">Recipe</h3>
-            </header>
-
-            <p>Boil chicken for 30 min, cut vegetables, add vegetables to
-              chicken, boil for 15 min</p>
-          </section>
-
-          <div class="recipe__buttons">
-            <input class="btn btn--send-to-top" type="button" aria-label="button to pin recipe to the top of your list"
-                   value="Send to Top">
-            <input class="link" type="button" aria-label="button to edit your recipe" value="Edit Recipe">
-          </div>
-
         </details> -->
-        <!--  DOM-ELEMENTS //////////////////////////////-->
+
+        <!-- * DOM-ELEMENTS //////////////////////////////-->
+
       </div>
     </main>
 
-    <form class="new-recipe hidden" action="">
+    <form class="new-recipe" action="">
       <header>
         <h2 class="heading heading--new-recipe">New Recipe</h2>
       </header>
@@ -223,8 +150,10 @@
 
 
       <ul>
-        <!--  DOM-ELEMENTS //////////////////////////////-->
-        <li>
+
+        <!-- * DOM-ELEMENTS //////////////////////////////-->
+
+        <!-- <li>
           <img class="new-recipe__remove-icon" type="button" src="./assets/icons/icon-remove.svg" alt="icon-with-minus"
                aria-label="remove ingredient from the list">
           <p>Chicken 300gr</p>
@@ -234,8 +163,10 @@
           <img class="new-recipe__remove-icon" type="button" src="./assets/icons/icon-remove.svg" alt="icon-with-minus"
                aria-label="remove ingredient from the list">
           <p>Potatoes 300gr</p>
-        </li>
-        <!--  DOM-ELEMENTS //////////////////////////////-->
+        </li> -->
+
+        <!-- * DOM-ELEMENTS //////////////////////////////-->
+
       </ul>
 
 
@@ -246,7 +177,7 @@
 
       <div class="new-recipe__category">
         <label class="section-heading" for="category">Category</label>
-        <select class="dropdown" aria-label="choose category of your recipe" name="category" id="category">
+        <select class="input" aria-label="choose category of your recipe" name="category" id="category">
           <option value="main">Main</option>
           <option value="breakfast">Breakfast</option>
           <option value="dessert">Dessert</option>
@@ -254,7 +185,7 @@
         </select>
       </div>
 
-      <input class="btn btn--new-recepie--short" type="submit" aria-label="button for adding a new recipe"
+      <input class="btn btn--new-recipe" type="submit" aria-label="button for adding a new recipe"
              value="+ Add new Recipe">
     </form>
 
@@ -262,9 +193,87 @@
       <p>© 2022 by Olya Vlasak (Front-End, UI/UX Design)</p>
       <p>vlasakolga@gmail.com</p>
     </footer>
-
-
   </div>
+
+  <!--  BIG SCREENS //////////////////////////////-->
+
+  <div class="content-container-big-screen">
+
+    <form class="search" action="">
+      <input class="input input--search" type="text" aria-label="searchbar for searching through your recipes"
+             name="recipes-search" placeholder="Search in Your Recipes">
+
+      <div class="search__toggle">
+        <button class="toggle-btn toggle-btn--disabled"
+                aria-label="button for turning on or off searching through list of ingredients"></button>
+        <p>Including ingredients</p>
+      </div>
+    </form>
+
+    <main class="main-recipes ">
+      <header>
+        <h2 class="heading heading--your-recipes">Your Recipes</h2>
+      </header>
+
+      <nav class="main-recipes__nav">
+        <button class="btn btn--nav--active" aria-label="section with main dish recipes">Main</button>
+        <button class="btn btn--nav--disabled" aria-label="section with breakfast recipes">Breakfast</button>
+        <button class="btn btn--nav--disabled" aria-label="section with dessert recipes">Dessert</button>
+        <button class="btn btn--nav--disabled" aria-label="section with snack recipes">Snack</button>
+      </nav>
+
+      <div class="main-recipes__recipes-container">
+
+        <!-- * DOM-ELEMENTS //////////////////////////////-->
+
+        <!-- <details class="recipe">
+
+          <summary aria-label="opens and closes recipe contents">
+            <p class="section-heading">Chicken soup</p>
+            <img class="dropdown--closed" alt="arrow-right-icon">
+
+          </summary>
+
+          <form class="recipe__ingredients" action="">
+            <header>
+              <h3>Ingredients:</h3>
+            </header>
+
+
+            <label for="Chicken-300gr">
+              <input type="checkbox" name="ingredient" value="Chicken 300gr" id="Chicken-300gr">
+              Chicken 300gr</label>
+
+
+            <label for="Potatoes-300gr">
+              <input type="checkbox" name="ingredient" value="Potatoes 300gr" id="Potatoes-300gr">
+              Potatoes 300gr</label>
+          </form>
+
+          <section class="recipe__instructions">
+            <header>
+              <h3>Recipe:</h3>
+            </header>
+
+            <p>Boil chicken for 30 min, cut vegetables, add vegetables to
+              chicken, boil for 15 min</p>
+          </section>
+
+          <div class="recipe__buttons">
+            <input class="btn btn--send-to-top" type="button" aria-label="button to pin recipe to the top of your list"
+                   value="Send to Top">
+            <input class="recipe__buttons__link" type="button" aria-label="button to edit your recipe"
+                   value="Edit Recipe">
+          </div>
+
+        </details> -->
+
+        <!-- * DOM-ELEMENTS //////////////////////////////-->
+      </div>
+    </main>
+  </div>
+
+
 
 
 
