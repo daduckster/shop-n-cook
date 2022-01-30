@@ -1,4 +1,5 @@
 import { addNewIngredient, addNewRecipe } from './newRecipeFunctions';
+import { populateList } from '../your-recipes/recipeFunctions';
 
 const inputDishName = document.querySelector('.js-input-dish-name');
 const inputIngredients = document.querySelector('.js-input-ingredients');
@@ -20,6 +21,7 @@ btnAdd.addEventListener('click', e => {
 });
 btnNewRecipeSave.addEventListener('click', e => {
 	addNewRecipe(e);
+	populateList();
 });
 // btnNewRecipeSave.addEventListener('submit', populateRecipesList);
 // btnNewRecipeSave.addEventListener('submit', cleanInputFields);

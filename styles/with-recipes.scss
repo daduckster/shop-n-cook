@@ -100,15 +100,15 @@
 
 	&__buttons {
 		margin: 1rem 0.7rem 0.7rem 0.7rem;
+		display: flex;
+		align-items: center;
 
-		&__link {
-			font-family: 'Comfortaa', cursive;
-			color: $font;
-			font-size: 1rem;
-			border: none;
-			border-bottom: 1.8px solid $font;
-			background-color: transparent;
-			margin-left: 0.5rem;
+		img {
+			cursor: pointer;
+			height: 1.1rem;
+			width: auto;
+			margin-bottom: 0.7rem;
+			margin-left: 0.7rem;
 		}
 	}
 
@@ -116,4 +116,8 @@
 		margin-top: 0.5rem;
 		font-size: 1rem;
 	}
+}
+
+.cross-out {
+	text-decoration: line-through;
 }

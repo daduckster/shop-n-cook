@@ -8,8 +8,8 @@ import {
 	recipesInStorage,
 	ingredientsArray,
 } from './newRecipeElements.js';
-
 import { createIngredientDOM } from './newRecipeDOM.js';
+import { createID } from '/src/index';
 
 // INGREDIENTS /////////////////////////////////////////////////
 
@@ -41,7 +41,6 @@ const addNewRecipe = e => {
 	e.preventDefault();
 	if (!inputDishName.value) {
 		inputDishName.classList.add('js-empty-field');
-		console.log('hi');
 		return;
 	} else if (inputDishName.classList.contains('js-empty-field')) {
 		inputDishName.classList.remove('js-empty-field');
@@ -51,17 +50,18 @@ const addNewRecipe = e => {
 	cleanInputsAndLists();
 };
 
-const createRecipeFactory = (name, ingredients, recipeText) => {
+const createRecipeFactory = (name, ingredients, recipeText, id) => {
 	name = inputDishName.value;
-	ingredients = ingredientsArray;
+	ingredients = Object.assign({}, ingredientsArray);
 	recipeText = inputRecipeText.value;
-	return { name, ingredients, recipeText };
+	id = `id${createID()}`;
+	return { name, ingredients, recipeText, id };
 };
 
 const updateLocalStorage = newRecipe => {
 	recipesInStorage.unshift(newRecipe);
 	localStorage.setItem('recipesInStorage', JSON.stringify(recipesInStorage));
-	ingredientsArray = [];
+	ingredientsArray.length = 0;
 };
 
 const cleanInputsAndLists = () => {
