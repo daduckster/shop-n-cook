@@ -28,10 +28,18 @@
 		flex-direction: column;
 	}
 
+	label {
+		font-weight: 300;
+	}
+
 	input {
 		margin-top: 0.4rem;
 		margin-bottom: 0.3rem;
 		width: 100%;
+
+		&:focus {
+			outline: none;
+		}
 	}
 
 	fieldset {
@@ -40,12 +48,17 @@
 
 	textarea {
 		margin-top: 0.5rem;
+		margin-bottom: 0.7rem;
 		border: none;
 		border-radius: 8px;
 		height: 15vmin;
 		padding: 0.5rem 0.5rem 0.5rem 0.4rem;
 		font-family: 'Comfortaa', cursive;
 		font-size: 1rem;
+
+		&:focus {
+			outline: none;
+		}
 	}
 
 	ul {
@@ -54,6 +67,7 @@
 			display: flex;
 			margin-top: 0.7rem;
 			img {
+				cursor: pointer;
 				margin-right: 0.5rem;
 			}
 		}
@@ -67,6 +81,13 @@
 
 .form-group {
 	margin-top: 0.7rem;
+}
+
+.js-input-dish-name {
+	border: 2px solid transparent;
+}
+.js-empty-field {
+	border: 2px solid $accent;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////

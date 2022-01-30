@@ -3,6 +3,12 @@
 .search {
 	margin-top: 1rem;
 
+	input {
+		&:focus {
+			outline: none;
+		}
+	}
+
 	&__toggle {
 		display: flex;
 		flex-direction: row;
@@ -21,17 +27,25 @@
 .main-recipes {
 	margin-top: 1.5rem;
 
-	&__nav {
-		display: grid;
-		background-color: $section-dark;
-		grid-template-columns: repeat(4, 1fr);
-		margin: 0.5rem -1rem 0 -1rem;
-	}
+	// &__nav {
+	// 	display: grid;
+	// 	background-color: $section-dark;
+	// 	grid-template-columns: repeat(4, 1fr);
+	// 	margin: 0.5rem -1rem 0 -1rem;
+	// }
 
 	&__recipes-container {
 		height: 100%;
 	}
 }
+
+// .placeholder {
+// 	position: absolute;
+// 	height: 100%;
+// 	width: 100%;
+// 	justify-content: center;
+// 	align-content: center;
+// }
 
 .recipe {
 	margin-top: 1rem;

@@ -20,12 +20,11 @@ body {
 
 .heading {
 	font-family: 'Lobster Two', cursive;
-	font-size: 2rem;
+	font-size: 1.7rem;
 	&--your-recipes {
 		color: $accent;
 	}
 	&--new-recipe {
-		font-size: 2rem;
 		margin-bottom: 0rem;
 	}
 }
