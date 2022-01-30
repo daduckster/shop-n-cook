@@ -87,9 +87,11 @@ const createRecipeDOM = recipe => {
 
 	recipeDeleteBtn.addEventListener('click', () => {
 		recipesContainer.forEach(container => {
-			container.removeChild(recipeDetails);
+			if (container.contains(recipeDetails)) {
+				container.removeChild(recipeDetails);
+			}
 		});
-		// deleteRecipe(recipe);
+		deleteRecipe(recipe);
 	});
 };
 

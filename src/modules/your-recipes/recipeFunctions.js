@@ -1,25 +1,11 @@
-import { createID } from '/src/index';
+import { createID, deleteRecipe } from '/src/index';
 import { recipesInStorage } from '../new-recipe/newRecipeElements.js';
 import { createRecipeDOM, recipesContainer } from './recipeItem';
 
-const populateList = () => {
-	cleanRecipesList();
-	recipesInStorage.map(recipe => {
-		createRecipeDOM(recipe);
-	});
-};
-
 const cleanRecipesList = () => {
-	recipesContainer.innerHTML = '';
-};
-
-const deleteRecipe = recipe => {
-	localStorage.removeItem('recipesInStorage');
-	const filteredRecipes = recipesInStorage.filter(recipeInStorage => recipeInStorage.id !== recipe.id);
-	recipesInStorage = filteredRecipes;
-	localStorage.setItem('recipesInStorage', JSON.stringify(recipesInStorage));
-
-	console.log(recipeToDelete);
+	recipesContainer.forEach(container => {
+		container.innerHTML = '';
+	});
 };
 
 // INGREDIENT-CHECKBOXES ////////////////////////////////////////////////
@@ -50,4 +36,4 @@ const generateAllIngredients = ingredients => {
 	return ingredientsContainer;
 };
 
-export { generateAllIngredients, populateList, deleteRecipe };
+export { generateAllIngredients, deleteRecipe, cleanRecipesList };

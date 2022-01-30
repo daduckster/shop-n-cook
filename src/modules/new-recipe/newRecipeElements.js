@@ -1,5 +1,5 @@
 import { addNewIngredient, addNewRecipe } from './newRecipeFunctions';
-import { populateList } from '../your-recipes/recipeFunctions';
+import { populateList } from '/src/index.js';
 
 const inputDishName = document.querySelector('.js-input-dish-name');
 const inputIngredients = document.querySelector('.js-input-ingredients');
@@ -13,7 +13,6 @@ const btnNewRecipeSave = document.querySelector('.js-btn-new-recipe-save');
 
 const ulIngredientContainer = document.querySelector('.js-ul-ingredient-container');
 
-let recipesInStorage = JSON.parse(localStorage.getItem('recipesInStorage')) || [];
 let ingredientsArray = [];
 
 btnAdd.addEventListener('click', e => {
@@ -36,6 +35,5 @@ export {
 	btnAdd,
 	btnNewRecipeSave,
 	ulIngredientContainer,
-	recipesInStorage,
 	ingredientsArray,
 };

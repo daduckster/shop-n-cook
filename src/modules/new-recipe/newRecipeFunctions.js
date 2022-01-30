@@ -9,7 +9,7 @@ import {
 	ingredientsArray,
 } from './newRecipeElements.js';
 import { createIngredientDOM } from './newRecipeDOM.js';
-import { createID } from '/src/index';
+import { createID, updateLocalStorage } from '/src/index';
 
 // INGREDIENTS /////////////////////////////////////////////////
 
@@ -56,12 +56,6 @@ const createRecipeFactory = (name, ingredients, recipeText, id) => {
 	recipeText = inputRecipeText.value;
 	id = `id${createID()}`;
 	return { name, ingredients, recipeText, id };
-};
-
-const updateLocalStorage = newRecipe => {
-	recipesInStorage.unshift(newRecipe);
-	localStorage.setItem('recipesInStorage', JSON.stringify(recipesInStorage));
-	ingredientsArray.length = 0;
 };
 
 const cleanInputsAndLists = () => {
