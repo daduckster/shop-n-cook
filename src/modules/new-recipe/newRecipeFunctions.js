@@ -53,7 +53,7 @@ const addNewRecipe = e => {
 
 const createRecipeFactory = (name, ingredients, recipeText) => {
 	name = inputDishName.value;
-	ingredients = Object.assign({}, ingredientsArray);
+	ingredients = ingredientsArray;
 	recipeText = inputRecipeText.value;
 	return { name, ingredients, recipeText };
 };
@@ -61,7 +61,7 @@ const createRecipeFactory = (name, ingredients, recipeText) => {
 const updateLocalStorage = newRecipe => {
 	recipesInStorage.unshift(newRecipe);
 	localStorage.setItem('recipesInStorage', JSON.stringify(recipesInStorage));
-	ingredientsArray.length = 0;
+	ingredientsArray = [];
 };
 
 const cleanInputsAndLists = () => {

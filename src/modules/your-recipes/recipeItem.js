@@ -2,7 +2,7 @@ import { recipesInStorage } from '../new-recipe/newRecipeElements.js';
 
 const recipesContainer = document.querySelectorAll('.main-recipes__recipes-container');
 
-const createRecipeDOM = () => {
+const createRecipeDOM = recipe => {
 	const recipeDetails = document.createElement('details');
 	const recipeSummary = document.createElement('summary');
 	const recipeSummaryP = document.createElement('p');
@@ -38,7 +38,11 @@ const createRecipeDOM = () => {
 
 	// CONTENTS ////////////////////////////////////////////////
 
-	recipeSummaryP.textContent = `${recipe.name}`;
+	recipeSummaryP.textContent = recipe.name;
 
 	ingredientsHeader.textContent = 'Ingredients:';
+
+	ingredientsCheckbox.forEach(checkbox => {
+		checkbox.id = 'ingredient';
+	});
 };

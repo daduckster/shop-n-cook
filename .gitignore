@@ -1,8 +1,4 @@
 node_modules/
 .DS_Store
-images/
-icons/
-*.png
-*.svg
 *.md
 *.vscode
