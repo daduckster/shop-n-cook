@@ -73,6 +73,10 @@
 	display: none;
 }
 
+.bag-svg {
+	display: none;
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////////
 // MOBILE - HORIZONTAL
 @media screen and (max-height: 567px) {
@@ -85,7 +89,6 @@
 // TABLET
 @media screen and (min-height: 568px) and (min-width: 613px) {
 	.content-container-mobile {
-		grid-area: newRecipe;
 		.main-empty {
 			display: none;
 		}
@@ -133,7 +136,7 @@
 		}
 
 		&__bag-svg {
-			align-self: flex-end;
+			display: none;
 		}
 	}
 
@@ -147,10 +150,24 @@
 		width: 100%;
 	}
 
+	.new-wrapper {
+		grid-area: newRecipe;
+		position: sticky;
+		display: flex;
+		flex-direction: column;
+		bottom: 0;
+	}
+
+	.bag-svg {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+
 	body {
 		background-color: $section-dark;
 		display: grid;
-		grid-template-areas: "hero yourRecipes" "newRecipe yourRecipes";
+		grid-template-areas: "hero yourRecipes" "img yourRecipes" "newRecipe yourRecipes";
 		gap: 0 1.56rem;
 		grid-template-columns: 37% auto;
 		grid-template-rows: 1fr auto;

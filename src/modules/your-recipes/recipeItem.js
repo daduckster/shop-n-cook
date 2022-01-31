@@ -32,6 +32,7 @@ const createRecipeDOM = recipe => {
 	recipeSummaryImg.classList.add('dropdown--closed');
 
 	ingredientsForm.classList.add('recipe__ingredients');
+	ingredientsContainer.classList.add('recipe__ingredients__container');
 
 	instructionsSection.classList.add('recipe__instructions');
 
@@ -44,7 +45,7 @@ const createRecipeDOM = recipe => {
 	recipeDetails.id = recipe.id;
 
 	recipeSummaryP.textContent = recipe.name;
-	recipeSummaryImg.alt = 'icon with arrow to the right';
+	recipeSummaryImg.alt = 'icon with arrow';
 
 	ingredientsHeaderText.textContent = 'Ingredients:';
 
@@ -85,6 +86,10 @@ const createRecipeDOM = recipe => {
 
 	// EVENTS ////////////////////////////////////////////////
 
+	recipeSummary.addEventListener('click', () => {
+		recipeSummaryImg.classList.toggle('dropdown--opened');
+	});
+
 	recipeDeleteBtn.addEventListener('click', () => {
 		recipesContainer.forEach(container => {
 			if (container.contains(recipeDetails)) {
@@ -92,6 +97,10 @@ const createRecipeDOM = recipe => {
 			}
 		});
 		deleteRecipe(recipe);
+	});
+
+	recipeEditBtn.addEventListener('click', () => {
+		editRecipe(recipe);
 	});
 };
 

@@ -86,11 +86,24 @@
 	&__ingredients {
 		display: flex;
 		flex-direction: column;
-		margin: 0.7rem;
+		margin: 0 0.7rem 0.7rem 0.7rem;
 
-		label,
-		input {
-			display: inline-block;
+		&__container {
+			display: flex;
+			flex-direction: column;
+			&__box {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+			}
+			&__label {
+				margin-left: 0.7rem;
+			}
+			// &__checkbox {
+			// 	vertical-align: middle;
+			// 	display: inline-block;
+			// 	margin-left: 10rem;
+			// }
 		}
 	}
 

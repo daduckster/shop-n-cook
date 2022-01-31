@@ -13,20 +13,26 @@ const cleanRecipesList = () => {
 const createIngredientBox = (ingredient, ingredientsContainer) => {
 	const ingredientId = `${createID()}${ingredient.replace('', '-')}`;
 
+	const ingredientBox = document.createElement('div');
+	ingredientBox.classList.add('recipe__ingredients__container__box');
+
 	const ingredientLabel = document.createElement('label');
 	ingredientLabel.innerHTML = ingredient;
 	ingredientLabel.htmlFor = ingredientId;
+	ingredientLabel.classList.add('recipe__ingredients__container__label');
 
 	const ingredientCheckbox = document.createElement('input');
 	ingredientCheckbox.setAttribute('type', 'checkbox');
 	ingredientCheckbox.id = ingredientId;
+	ingredientCheckbox.classList.add('recipe__ingredients__container__checkbox');
 
 	ingredientCheckbox.addEventListener('change', () => {
 		ingredientLabel.classList.toggle('cross-out');
 	});
 
-	ingredientsContainer.appendChild(ingredientCheckbox);
-	ingredientsContainer.appendChild(ingredientLabel);
+	ingredientBox.appendChild(ingredientCheckbox);
+	ingredientBox.appendChild(ingredientLabel);
+	ingredientsContainer.appendChild(ingredientBox);
 };
 
 const generateAllIngredients = ingredients => {

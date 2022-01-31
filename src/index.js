@@ -34,8 +34,3 @@ const updateLocalStorage = newRecipe => {
 populateList();
 
 export { createID, deleteRecipe, updateLocalStorage, populateList };
-// console.log(recipeItem.recipesContainer);
-
-// console.log(newRecipeElements.inputDishName);
-
-// newRecipeFunctions.addNewIngredient();
