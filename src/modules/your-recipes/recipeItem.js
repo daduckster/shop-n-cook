@@ -2,6 +2,8 @@ import { recipesInStorage } from '../new-recipe/newRecipeElements.js';
 import { generateAllIngredients, deleteRecipe } from './recipeFunctions';
 
 const recipesContainer = document.querySelectorAll('.main-recipes__recipes-container');
+const recipesContainerMobile = document.querySelector('.recipes-container-mobile');
+const recipesContainerDesktop = document.querySelector('.recipes-container-desktop');
 
 const createRecipeDOM = recipe => {
 	const recipeDetails = document.createElement('details');
@@ -80,10 +82,14 @@ const createRecipeDOM = recipe => {
 	recipeDetails.appendChild(instructionsSection);
 	recipeDetails.appendChild(recipeBtnContainer);
 
-	recipesContainer.forEach(container => {
-		container.appendChild(recipeDetails);
-	});
+	// recipesContainer.forEach(container => {
+	// 	container.appendChild(recipeDetails);
+	// });
 
+	let newRecipeDetails = recipeDetails.cloneNode(true);
+
+	recipesContainerMobile.appendChild(recipeDetails);
+	recipesContainerDesktop.appendChild(newRecipeDetails);
 	// EVENTS ////////////////////////////////////////////////
 
 	recipeSummary.addEventListener('click', () => {
@@ -91,11 +97,20 @@ const createRecipeDOM = recipe => {
 	});
 
 	recipeDeleteBtn.addEventListener('click', () => {
-		recipesContainer.forEach(container => {
-			if (container.contains(recipeDetails)) {
-				container.removeChild(recipeDetails);
-			}
-		});
+		// recipesContainer.forEach(container => {
+		// 	if (container.contains(recipeDetails)) {
+		// 		container.removeChild(recipeDetails);
+		// 	}
+		// });
+
+		if (recipesContainerMobile.contains(newRecipeDetails)) {
+			recipesContainerMobile.removeChild(newRecipeDetails);
+		}
+
+		if (recipesContainerDesktop.contains(recipeDetails)) {
+			recipesContainerDesktop.removeChild(recipeDetails);
+		}
+
 		deleteRecipe(recipe);
 	});
 
