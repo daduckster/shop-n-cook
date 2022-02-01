@@ -1,6 +1,6 @@
 import { createID, deleteRecipe } from '/src/index';
 import { recipesInStorage } from '../new-recipe/newRecipeElements.js';
-import { createRecipeDOM, recipesContainer } from './recipeItem';
+import { createRecipeMobileDOM, recipesContainer } from './recipeItem';
 
 const cleanRecipesList = () => {
 	recipesContainer.forEach(container => {

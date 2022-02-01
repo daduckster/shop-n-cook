@@ -14,7 +14,7 @@ function createID() {
 const populateList = () => {
 	recipeFunctions.cleanRecipesList();
 	recipesInStorage.map(recipe => {
-		recipeItem.createRecipeDOM(recipe);
+		recipeItem.createRecipeMobileDOM(recipe);
 	});
 };
 

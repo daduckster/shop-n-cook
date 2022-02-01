@@ -5,7 +5,7 @@ const recipesContainer = document.querySelectorAll('.main-recipes__recipes-conta
 const recipesContainerMobile = document.querySelector('.recipes-container-mobile');
 const recipesContainerDesktop = document.querySelector('.recipes-container-desktop');
 
-const createRecipeDOM = recipe => {
+const createRecipeMobileDOM = recipe => {
 	const recipeDetails = document.createElement('details');
 
 	const recipeSummary = document.createElement('summary');
@@ -41,6 +41,8 @@ const createRecipeDOM = recipe => {
 	recipeBtnContainer.classList.add('recipe__buttons');
 	recipeSendToTopBtn.classList.add('btn');
 	recipeSendToTopBtn.classList.add('btn--send-to-top');
+
+	recipeDeleteBtn.classList.add(`btn${recipe.id}`);
 
 	// CONTENTS ////////////////////////////////////////////////
 
@@ -82,41 +84,54 @@ const createRecipeDOM = recipe => {
 	recipeDetails.appendChild(instructionsSection);
 	recipeDetails.appendChild(recipeBtnContainer);
 
-	// recipesContainer.forEach(container => {
-	// 	container.appendChild(recipeDetails);
-	// });
-
 	let newRecipeDetails = recipeDetails.cloneNode(true);
 
 	recipesContainerMobile.appendChild(recipeDetails);
 	recipesContainerDesktop.appendChild(newRecipeDetails);
+
 	// EVENTS ////////////////////////////////////////////////
+
+	const deleteBtn = document.querySelectorAll(`.btn${recipe.id}`);
 
 	recipeSummary.addEventListener('click', () => {
 		recipeSummaryImg.classList.toggle('dropdown--opened');
 	});
 
-	recipeDeleteBtn.addEventListener('click', () => {
-		// recipesContainer.forEach(container => {
-		// 	if (container.contains(recipeDetails)) {
-		// 		container.removeChild(recipeDetails);
-		// 	}
-		// });
+	deleteBtn.forEach(btn => {
+		btn.addEventListener('click', () => {
+			if (recipesContainerMobile.contains(recipeDetails)) {
+				recipesContainerMobile.removeChild(recipeDetails);
+			}
 
-		if (recipesContainerMobile.contains(newRecipeDetails)) {
-			recipesContainerMobile.removeChild(newRecipeDetails);
-		}
+			if (recipesContainerDesktop.contains(newRecipeDetails)) {
+				recipesContainerDesktop.removeChild(newRecipeDetails);
+			}
 
-		if (recipesContainerDesktop.contains(recipeDetails)) {
-			recipesContainerDesktop.removeChild(recipeDetails);
-		}
-
-		deleteRecipe(recipe);
+			deleteRecipe(recipe);
+		});
 	});
+
+	// recipeDeleteBtn.addEventListener('click', () => {
+	// 	// recipesContainer.forEach(container => {
+	// 	// 	if (container.contains(recipeDetails)) {
+	// 	// 		container.removeChild(recipeDetails);
+	// 	// 	}
+	// 	// });
+
+	// 	if (recipesContainerMobile.contains(recipeDetails)) {
+	// 		recipesContainerMobile.removeChild(recipeDetails);
+	// 	}
+
+	// 	if (recipesContainerDesktop.contains(newRecipeDetails)) {
+	// 		recipesContainerDesktop.removeChild(newRecipeDetails);
+	// 	}
+
+	// 	deleteRecipe(recipe);
+	// });
 
 	recipeEditBtn.addEventListener('click', () => {
 		editRecipe(recipe);
 	});
 };
 
-export { createRecipeDOM, recipesContainer };
+export { createRecipeMobileDOM, recipesContainer };
