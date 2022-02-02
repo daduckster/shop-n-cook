@@ -1,5 +1,6 @@
 import { recipesInStorage } from '../new-recipe/newRecipeElements.js';
 import { generateAllIngredients, deleteRecipe } from './recipeFunctions';
+import { editRecipe } from '/src/index';
 
 const recipesContainer = document.querySelectorAll('.main-recipes__recipes-container');
 const recipesContainerMobile = document.querySelector('.recipes-container-mobile');
@@ -30,6 +31,7 @@ const createRecipeMobileDOM = recipe => {
 	// CLASSES ////////////////////////////////////////////////
 
 	recipeDetails.classList.add('recipe');
+
 	recipeSummaryP.classList.add('section-heading');
 	recipeSummaryImg.classList.add('dropdown--closed');
 
@@ -42,7 +44,11 @@ const createRecipeMobileDOM = recipe => {
 	recipeSendToTopBtn.classList.add('btn');
 	recipeSendToTopBtn.classList.add('btn--send-to-top');
 
-	recipeDeleteBtn.classList.add(`btn${recipe.id}`);
+	recipeSummary.classList.add(`summary${recipe.id}`);
+	recipeSummaryImg.classList.add(`summaryImg${recipe.id}`);
+	recipeSendToTopBtn.classList.add(`toTopBtn${recipe.id}`);
+	recipeEditBtn.classList.add(`btnEdit${recipe.id}`);
+	recipeDeleteBtn.classList.add(`btnDelete${recipe.id}`);
 
 	// CONTENTS ////////////////////////////////////////////////
 
@@ -91,10 +97,28 @@ const createRecipeMobileDOM = recipe => {
 
 	// EVENTS ////////////////////////////////////////////////
 
-	const deleteBtn = document.querySelectorAll(`.btn${recipe.id}`);
+	const summary = document.querySelectorAll(`.summary${recipe.id}`);
+	const summaryImg = document.querySelectorAll(`.summaryImg${recipe.id}`);
+	const toTopBtn = document.querySelectorAll(`.toTopBtn${recipe.id}`);
+	const editBtn = document.querySelectorAll(`.btnEdit${recipe.id}`);
+	const deleteBtn = document.querySelectorAll(`.btnDelete${recipe.id}`);
+	const checkbox = document.querySelectorAll(`.checkbox${recipe.id}`);
+	const checkboxLabel = document.querySelectorAll(`.checkboxLabel${recipe.id}`);
 
-	recipeSummary.addEventListener('click', () => {
-		recipeSummaryImg.classList.toggle('dropdown--opened');
+	summary.forEach(summary => {
+		summary.addEventListener('click', () => {
+			summaryImg.forEach(summaryImg => {
+				summaryImg.classList.toggle('dropdown--opened');
+			});
+		});
+	});
+
+	checkbox.forEach(checkbox => {
+		checkbox.addEventListener('change', () => {
+			checkboxLabel.forEach(label => {
+				label.classList.toggle('cross-out');
+			});
+		});
 	});
 
 	deleteBtn.forEach(btn => {
@@ -111,26 +135,16 @@ const createRecipeMobileDOM = recipe => {
 		});
 	});
 
-	// recipeDeleteBtn.addEventListener('click', () => {
-	// 	// recipesContainer.forEach(container => {
-	// 	// 	if (container.contains(recipeDetails)) {
-	// 	// 		container.removeChild(recipeDetails);
-	// 	// 	}
-	// 	// });
+	editBtn.forEach(btn => {
+		btn.addEventListener('click', () => {
+			editRecipe(recipe);
+		});
+	});
 
-	// 	if (recipesContainerMobile.contains(recipeDetails)) {
-	// 		recipesContainerMobile.removeChild(recipeDetails);
-	// 	}
-
-	// 	if (recipesContainerDesktop.contains(newRecipeDetails)) {
-	// 		recipesContainerDesktop.removeChild(newRecipeDetails);
-	// 	}
-
-	// 	deleteRecipe(recipe);
-	// });
-
-	recipeEditBtn.addEventListener('click', () => {
-		editRecipe(recipe);
+	toTopBtn.forEach(btn => {
+		btn.addEventListener('click', () => {
+			sendToTop();
+		});
 	});
 };
 

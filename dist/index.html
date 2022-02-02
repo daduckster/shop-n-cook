@@ -36,6 +36,61 @@
 
     <div class="content-container-mobile">
 
+      <form class="new-recipe" action="">
+        <header>
+          <h2 class="heading heading--new-recipe">New Recipe</h2>
+        </header>
+        <div class="form-group">
+          <label class="section-heading" for="name-of-the-dish">Name of the dish</label>
+          <input class="input js-input-dish-name" type="text" name="name-of-the-dish" id="name-of-the-dish" required>
+        </div>
+        <fieldset class="form-group">
+          <label class="section-heading" for="ingredients">Ingredients</label>
+          <input class="input js-input-ingredients" type="text" name="ingredients" id="ingredients">
+          <div class="new-recipe__input-nest">
+            <input class="input input--short js-input-weight" type="number" aria-label="input for weight of ingredient"
+                   name="weight" id="weight" placeholder="300">
+            <input class="input input--short dropdown js-input-measure" list="measurements"
+                   aria-label="input for measurement associated with weight" name="measurements" placeholder="gr">
+            <datalist id="measurements">
+              <option value="gr">
+              <option value="kg">
+              <option value="L">
+              <option value="ml">
+              <option value="tsp">
+              <option value="tbsp">
+              <option value="oz">
+              <option value="lbs">
+              <option value="pt">
+              <option value="qt">
+              <option value="gal">
+            </datalist>
+            <button type="button" class="btn btn--add js-btn-add" aria-label="add new ingredient to the list">+
+              Add</button>
+          </div>
+        </fieldset>
+        <ul class="js-ul-ingredient-container">
+          <!-- * DOM-ELEMENTS //////////////////////////////-->
+          <!-- <li>
+            <img class="new-recipe__remove-icon" type="button" src="./assets/icons/icon-remove.svg" alt="icon-with-minus"
+                 aria-label="remove ingredient from the list">
+            <p>Chicken 300gr</p>
+          </li>
+          <li>
+            <img class="new-recipe__remove-icon" type="button" src="./assets/icons/icon-remove.svg" alt="icon-with-minus"
+                 aria-label="remove ingredient from the list">
+            <p>Potatoes 300gr</p>
+          </li> -->
+          <!-- * DOM-ELEMENTS //////////////////////////////-->
+        </ul>
+        <div class="new-recipe__recipe-text">
+          <label class="section-heading" for="recipe">Recipe</label>
+          <textarea class="js-input-recipe" name="recipe" id="recipe"></textarea>
+        </div>
+        <input class="btn btn--new-recipe js-btn-new-recipe-save" type="submit"
+               aria-label="button for adding a new recipe" value="+ Add new Recipe">
+      </form>
+
       <button class="btn btn--new-recipe content-container-mobile__new-recipe-btn js-btn-new-recipe-mobile"
               type="button" aria-label="button for adding a new recipe"> + Add
         new Recipe</button>
@@ -88,59 +143,7 @@
           <!-- * DOM-ELEMENTS //////////////////////////////-->
         </div>
       </main>
-      <form class="new-recipe" action="">
-        <header>
-          <h2 class="heading heading--new-recipe">New Recipe</h2>
-        </header>
-        <div class="form-group">
-          <label class="section-heading" for="name-of-the-dish">Name of the dish</label>
-          <input class="input js-input-dish-name" type="text" name="name-of-the-dish" id="name-of-the-dish" required>
-        </div>
-        <fieldset class="form-group">
-          <label class="section-heading" for="ingredients">Ingredients</label>
-          <input class="input js-input-ingredients" type="text" name="ingredients" id="ingredients">
-          <div class="new-recipe__input-nest">
-            <input class="input input--short js-input-weight" type="number" aria-label="input for weight of ingredient"
-                   name="weight" id="weight" placeholder="300">
-            <input class="input input--short dropdown js-input-measure" list="measurements"
-                   aria-label="input for measurement associated with weight" name="measurements" placeholder="gr">
-            <datalist id="measurements">
-              <option value="gr">
-              <option value="kg">
-              <option value="L">
-              <option value="ml">
-              <option value="tsp">
-              <option value="tbsp">
-              <option value="oz">
-              <option value="lbs">
-              <option value="pt">
-              <option value="qt">
-              <option value="gal">
-            </datalist>
-            <button class="btn btn--add js-btn-add" aria-label="add new ingredient to the list">+ Add</button>
-          </div>
-        </fieldset>
-        <ul class="js-ul-ingredient-container">
-          <!-- * DOM-ELEMENTS //////////////////////////////-->
-          <!-- <li>
-            <img class="new-recipe__remove-icon" type="button" src="./assets/icons/icon-remove.svg" alt="icon-with-minus"
-                 aria-label="remove ingredient from the list">
-            <p>Chicken 300gr</p>
-          </li>
-          <li>
-            <img class="new-recipe__remove-icon" type="button" src="./assets/icons/icon-remove.svg" alt="icon-with-minus"
-                 aria-label="remove ingredient from the list">
-            <p>Potatoes 300gr</p>
-          </li> -->
-          <!-- * DOM-ELEMENTS //////////////////////////////-->
-        </ul>
-        <div class="new-recipe__recipe-text">
-          <label class="section-heading" for="recipe">Recipe</label>
-          <textarea class="js-input-recipe" name="recipe" id="recipe"></textarea>
-        </div>
-        <input class="btn btn--new-recipe js-btn-new-recipe-save" type="submit"
-               aria-label="button for adding a new recipe" value="+ Add new Recipe">
-      </form>
+
       <footer>
         <p>© 2022 by Olya Vlasak (Front-End, UI/UX Design)</p>
         <p>vlasakolga@gmail.com</p>

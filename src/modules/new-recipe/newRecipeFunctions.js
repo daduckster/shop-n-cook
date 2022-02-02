@@ -4,12 +4,21 @@ import {
 	inputWeight,
 	inputMeasure,
 	inputRecipeText,
+	btnNewRecipeMobile,
 	ulIngredientContainer,
+	formNewRecipes,
+	newRecipeHeader,
 	recipesInStorage,
 	ingredientsArray,
+	assignArrayFactory,
 } from './newRecipeElements.js';
 import { createIngredientDOM } from './newRecipeDOM.js';
 import { createID, updateLocalStorage } from '/src/index';
+
+const openNewRecipeForm = () => {
+	btnNewRecipeMobile.classList.add('hidden');
+	formNewRecipes.classList.add('visible');
+};
 
 // INGREDIENTS /////////////////////////////////////////////////
 
@@ -27,6 +36,9 @@ const addNewIngredient = e => {
 
 const deleteIngredient = liIngredient => {
 	ulIngredientContainer.removeChild(liIngredient);
+	const arrayToDelete = ingredientsArray.find(ingredient => {
+		ingredient.id === liIngredient.id;
+	});
 };
 
 const cleanInputsIngredients = () => {
@@ -41,16 +53,33 @@ const addNewRecipe = e => {
 	e.preventDefault();
 	if (!inputDishName.value) {
 		inputDishName.classList.add('js-empty-field');
+		if (formNewRecipes.classList.contains('visible')) {
+			formNewRecipes.classList.remove('visible');
+			btnNewRecipeMobile.classList.remove('hidden');
+		}
 		return;
 	} else if (inputDishName.classList.contains('js-empty-field')) {
 		inputDishName.classList.remove('js-empty-field');
 	}
-	const newRecipe = createRecipeFactory();
-	updateLocalStorage(newRecipe);
-	cleanInputsAndLists();
+
+	if (inputIngredients.value !== '') {
+		addNewIngredient(e);
+		return;
+	} else {
+		const newRecipe = createRecipeFactory();
+		updateLocalStorage(newRecipe);
+		cleanInputsAndLists();
+		btnNewRecipeMobile.classList.remove('hidden');
+		formNewRecipes.classList.remove('visible');
+	}
 };
 
 const createRecipeFactory = (name, ingredients, recipeText, id) => {
+	const ingredientsForArray = document.querySelectorAll('.pIngredient');
+	ingredientsForArray.forEach(ingredient => {
+		const text = ingredient.textContent;
+		ingredientsArray.push(text);
+	});
 	name = inputDishName.value;
 	ingredients = Object.assign({}, ingredientsArray);
 	recipeText = inputRecipeText.value;
@@ -67,4 +96,26 @@ const cleanInputsAndLists = () => {
 	inputRecipeText.value = '';
 };
 
-export { addNewIngredient, addNewRecipe, deleteIngredient, cleanInputsIngredients };
+// EDIT RECIPE /////////////////////////////////////////////////
+
+const enableEditingForm = recipe => {
+	newRecipeHeader.textContent = 'Edit Recipe';
+	inputDishName.value = `${recipe.name}`;
+	const ingredientList = Object.values(recipe.ingredients);
+	for (let i = 0; i < ingredientList.length; i++) {
+		let ingredient = ingredientList[i];
+		createIngredientDOM(ingredient);
+	}
+	// ingredientList.forEach(ingredient => {
+	// 	createIngredientDOM(ingredient);
+	// });
+};
+
+export {
+	addNewIngredient,
+	addNewRecipe,
+	deleteIngredient,
+	cleanInputsIngredients,
+	openNewRecipeForm,
+	enableEditingForm,
+};

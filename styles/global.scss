@@ -111,7 +111,7 @@ input::-webkit-calendar-picker-indicator {
 }
 
 .hidden {
-	display: none;
+	display: none !important;
 }
 
 .visible {

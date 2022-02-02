@@ -18,6 +18,11 @@ const populateList = () => {
 	});
 };
 
+const editRecipe = recipe => {
+	const recipeToEdit = recipesInStorage.find(recipeInStorage => recipeInStorage.id === recipe.id);
+	newRecipeFunctions.enableEditingForm(recipeToEdit);
+};
+
 const deleteRecipe = recipe => {
 	const filteredRecipes = recipesInStorage.filter(recipeInStorage => recipeInStorage.id !== recipe.id);
 	recipesInStorage = filteredRecipes;
@@ -33,4 +38,4 @@ const updateLocalStorage = newRecipe => {
 
 populateList();
 
-export { createID, deleteRecipe, updateLocalStorage, populateList };
+export { createID, deleteRecipe, updateLocalStorage, populateList, editRecipe };
