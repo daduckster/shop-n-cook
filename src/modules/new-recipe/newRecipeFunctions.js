@@ -4,6 +4,7 @@ import {
 	inputWeight,
 	inputMeasure,
 	inputRecipeText,
+	btnNewRecipeSave,
 	btnNewRecipeMobile,
 	ulIngredientContainer,
 	formNewRecipes,
@@ -13,7 +14,7 @@ import {
 	assignArrayFactory,
 } from './newRecipeElements.js';
 import { createIngredientDOM } from './newRecipeDOM.js';
-import { createID, updateLocalStorage } from '/src/index';
+import { createID, updateLocalStorage, saveChangesLocalStorage, populateList } from '/src/index';
 
 const openNewRecipeForm = () => {
 	btnNewRecipeMobile.classList.add('hidden');
@@ -51,6 +52,10 @@ const cleanInputsIngredients = () => {
 
 const addNewRecipe = e => {
 	e.preventDefault();
+	if (btnNewRecipeSave.value === 'Save Changes') {
+		saveEditingChanges(e);
+		return;
+	}
 	if (!inputDishName.value) {
 		inputDishName.classList.add('js-empty-field');
 		if (formNewRecipes.classList.contains('visible')) {
@@ -71,7 +76,18 @@ const addNewRecipe = e => {
 		cleanInputsAndLists();
 		btnNewRecipeMobile.classList.remove('hidden');
 		formNewRecipes.classList.remove('visible');
+		populateList();
+		openNewRecipe();
 	}
+};
+
+const openNewRecipe = () => {
+	const recipeContainer = document.querySelectorAll('.main-recipes__recipes-container');
+
+	recipeContainer.forEach(container => {
+		const lastRecipe = container.firstChild;
+		lastRecipe.setAttribute('open', true);
+	});
 };
 
 const createRecipeFactory = (name, ingredients, recipeText, id) => {
@@ -100,15 +116,49 @@ const cleanInputsAndLists = () => {
 
 const enableEditingForm = recipe => {
 	newRecipeHeader.textContent = 'Edit Recipe';
+	if (!formNewRecipes.classList.contains('visible')) {
+		formNewRecipes.classList.add('visible');
+		btnNewRecipeMobile.classList.add('hidden');
+	}
+	btnNewRecipeSave.value = 'Save Changes';
+	btnNewRecipeSave.id = `${recipe.id}`;
 	inputDishName.value = `${recipe.name}`;
 	const ingredientList = Object.values(recipe.ingredients);
 	for (let i = 0; i < ingredientList.length; i++) {
 		let ingredient = ingredientList[i];
 		createIngredientDOM(ingredient);
 	}
-	// ingredientList.forEach(ingredient => {
-	// 	createIngredientDOM(ingredient);
-	// });
+	inputRecipeText.value = `${recipe.recipeText}`;
+};
+
+const saveEditingChanges = e => {
+	e.preventDefault();
+
+	if (!inputDishName.value) {
+		inputDishName.classList.add('js-empty-field');
+		if (formNewRecipes.classList.contains('visible')) {
+			formNewRecipes.classList.remove('visible');
+			btnNewRecipeMobile.classList.remove('hidden');
+		}
+		return;
+	} else if (inputDishName.classList.contains('js-empty-field')) {
+		inputDishName.classList.remove('js-empty-field');
+	}
+
+	if (inputIngredients.value !== '') {
+		addNewIngredient(e);
+		return;
+	} else {
+		newRecipeHeader.textContent = 'New Recipe';
+		btnNewRecipeSave.value = '+ Add new Recipe';
+		const updatedRecipe = createRecipeFactory();
+		saveChangesLocalStorage(updatedRecipe);
+		cleanInputsAndLists();
+		btnNewRecipeMobile.classList.remove('hidden');
+		formNewRecipes.classList.remove('visible');
+		populateList();
+		openNewRecipe();
+	}
 };
 
 export {

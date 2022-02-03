@@ -27,18 +27,18 @@ btnAdd.addEventListener('click', e => {
 btnAdd.addEventListener('keypress', e => {
 	if (e.keyCode == 13) {
 		addNewRecipe(e);
-		populateList();
+		// populateList();
 	}
 });
 
 formNewRecipes.addEventListener('submit', e => {
 	addNewRecipe(e);
-	populateList();
+	// populateList();
 });
 
 btnNewRecipeSave.addEventListener('click', e => {
 	addNewRecipe(e);
-	populateList();
+	// populateList();
 });
 // btnNewRecipeSave.addEventListener('submit', populateRecipesList);
 // btnNewRecipeSave.addEventListener('submit', cleanInputFields);

@@ -36,6 +36,16 @@ const updateLocalStorage = newRecipe => {
 	newRecipeElements.ingredientsArray.length = 0;
 };
 
+const saveChangesLocalStorage = updatedRecipe => {
+	const recipeToChange = recipesInStorage.findIndex(recipe => recipe.id === newRecipeElements.btnNewRecipeSave.id);
+	recipesInStorage[recipeToChange].name = updatedRecipe.name;
+	recipesInStorage[recipeToChange].ingredients = updatedRecipe.ingredients;
+	recipesInStorage[recipeToChange].recipeText = updatedRecipe.recipeText;
+	recipesInStorage[recipeToChange].id = updatedRecipe.id;
+	localStorage.setItem('recipesInStorage', JSON.stringify(recipesInStorage));
+	newRecipeElements.ingredientsArray.length = 0;
+};
+
 populateList();
 
-export { createID, deleteRecipe, updateLocalStorage, populateList, editRecipe };
+export { createID, deleteRecipe, updateLocalStorage, populateList, editRecipe, saveChangesLocalStorage };
