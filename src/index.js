@@ -3,6 +3,7 @@ import * as newRecipeElements from './modules/new-recipe/newRecipeElements';
 import * as newRecipeFunctions from './modules/new-recipe/newRecipeFunctions';
 import * as recipeItem from './modules/your-recipes/recipeItem';
 import * as recipeFunctions from './modules/your-recipes/recipeFunctions';
+import * as searchFunctions from './modules/search/searchFunctions';
 
 let recipesInStorage = JSON.parse(localStorage.getItem('recipesInStorage')) || [];
 
@@ -27,7 +28,19 @@ const deleteRecipe = recipe => {
 	const filteredRecipes = recipesInStorage.filter(recipeInStorage => recipeInStorage.id !== recipe.id);
 	recipesInStorage = filteredRecipes;
 	localStorage.setItem('recipesInStorage', JSON.stringify(recipesInStorage));
+	if (searchFunctions.searchMobile.value !== '') {
+		searchFunctions.keywordSearch(e);
+	}
 	populateList();
+};
+
+const sendToTop = recipe => {
+	const filteredRecipes = recipesInStorage.filter(recipeInStorage => recipeInStorage.id !== recipe.id);
+	recipesInStorage = filteredRecipes;
+	recipesInStorage.unshift(recipe);
+	localStorage.setItem('recipesInStorage', JSON.stringify(recipesInStorage));
+	populateList();
+	newRecipeFunctions.openSavedRecipe(recipe);
 };
 
 const updateLocalStorage = newRecipe => {
@@ -46,6 +59,36 @@ const saveChangesLocalStorage = updatedRecipe => {
 	newRecipeElements.ingredientsArray.length = 0;
 };
 
+const searchInStorage = (keyword, id, e) => {
+	e.preventDefault();
+
+	if (id === 'withoutIngredients') {
+		const searchedRecipes = recipesInStorage.filter(recipe => recipe.name.toLowerCase().includes(keyword.trim()));
+		recipeFunctions.cleanRecipesList();
+		searchedRecipes.map(recipe => recipeItem.createRecipeMobileDOM(recipe));
+		return null;
+	} else if (id === 'withIngredients') {
+		const searchedRecipes = recipesInStorage.filter(recipe => {
+			if (recipe.name.toLowerCase().includes(keyword.trim())) return recipe;
+
+			for (const key in recipe.ingredients) {
+				if (recipe.ingredients[key].includes(keyword.trim())) return recipe;
+			}
+		});
+		recipeFunctions.cleanRecipesList();
+		searchedRecipes.map(recipe => recipeItem.createRecipeMobileDOM(recipe));
+	}
+};
+
 populateList();
 
-export { createID, deleteRecipe, updateLocalStorage, populateList, editRecipe, saveChangesLocalStorage };
+export {
+	createID,
+	deleteRecipe,
+	updateLocalStorage,
+	populateList,
+	editRecipe,
+	saveChangesLocalStorage,
+	searchInStorage,
+	sendToTop,
+};

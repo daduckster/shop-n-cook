@@ -1,6 +1,6 @@
 import { recipesInStorage } from '../new-recipe/newRecipeElements.js';
 import { generateAllIngredients, deleteRecipe } from './recipeFunctions';
-import { editRecipe } from '/src/index';
+import { editRecipe, sendToTop } from '/src/index';
 
 const recipesContainer = document.querySelectorAll('.main-recipes__recipes-container');
 const recipesContainerMobile = document.querySelector('.recipes-container-mobile');
@@ -113,14 +113,6 @@ const createRecipeMobileDOM = recipe => {
 		});
 	});
 
-	checkbox.forEach(checkbox => {
-		checkbox.addEventListener('change', () => {
-			checkboxLabel.forEach(label => {
-				label.classList.toggle('cross-out');
-			});
-		});
-	});
-
 	deleteBtn.forEach(btn => {
 		btn.addEventListener('click', () => {
 			if (recipesContainerMobile.contains(recipeDetails)) {
@@ -143,7 +135,7 @@ const createRecipeMobileDOM = recipe => {
 
 	toTopBtn.forEach(btn => {
 		btn.addEventListener('click', () => {
-			sendToTop();
+			sendToTop(recipe);
 		});
 	});
 };

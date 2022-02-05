@@ -77,16 +77,14 @@ const addNewRecipe = e => {
 		btnNewRecipeMobile.classList.remove('hidden');
 		formNewRecipes.classList.remove('visible');
 		populateList();
-		openNewRecipe();
+		openSavedRecipe(newRecipe);
 	}
 };
 
-const openNewRecipe = () => {
-	const recipeContainer = document.querySelectorAll('.main-recipes__recipes-container');
-
-	recipeContainer.forEach(container => {
-		const lastRecipe = container.firstChild;
-		lastRecipe.setAttribute('open', true);
+const openSavedRecipe = recipe => {
+	const recipeElement = document.querySelectorAll(`#${recipe.id}`);
+	recipeElement.forEach(element => {
+		element.setAttribute('open', true);
 	});
 };
 
@@ -157,7 +155,7 @@ const saveEditingChanges = e => {
 		btnNewRecipeMobile.classList.remove('hidden');
 		formNewRecipes.classList.remove('visible');
 		populateList();
-		openNewRecipe();
+		openSavedRecipe(updatedRecipe);
 	}
 };
 
@@ -168,4 +166,5 @@ export {
 	cleanInputsIngredients,
 	openNewRecipeForm,
 	enableEditingForm,
+	openSavedRecipe,
 };

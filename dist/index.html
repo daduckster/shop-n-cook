@@ -94,11 +94,13 @@
       <button class="btn btn--new-recipe content-container-mobile__new-recipe-btn js-btn-new-recipe-mobile"
               type="button" aria-label="button for adding a new recipe"> + Add
         new Recipe</button>
+
       <form class="search" action="">
-        <input class="input input--search" type="text" aria-label="searchbar for searching through your recipes"
-               name="recipes-search" placeholder="Search in Your Recipes">
+        <input class="input input--search search-mobile" type="search"
+               aria-label="searchbar for searching through your recipes" name="recipes-search"
+               placeholder="Search in Your Recipes">
         <div class="search__toggle">
-          <button class="toggle-btn toggle-btn--disabled"
+          <button type="button" class="toggle-btn toggle-btn--disabled"
                   aria-label="button for turning on or off searching through list of ingredients"></button>
           <p>Including ingredients</p>
         </div>
@@ -156,11 +158,12 @@
   <div class="content-container-big-screen">
 
     <form class="search" action="">
-      <input class="input input--search" type="text" aria-label="searchbar for searching through your recipes"
-             name="recipes-search" placeholder="Search in Your Recipes">
+      <input class="input input--search search-desktop" type="search"
+             aria-label="searchbar for searching through your recipes" name="recipes-search"
+             placeholder="Search in Your Recipes">
 
       <div class="search__toggle">
-        <button class="toggle-btn toggle-btn--disabled"
+        <button type="button" class="toggle-btn toggle-btn--disabled"
                 aria-label="button for turning on or off searching through list of ingredients"></button>
         <p>Including ingredients</p>
       </div>
