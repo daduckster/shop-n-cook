@@ -20,17 +20,11 @@ const createIngredientBox = (ingredient, ingredientsContainer) => {
 	ingredientLabel.innerHTML = ingredient;
 	ingredientLabel.htmlFor = ingredientId;
 	ingredientLabel.classList.add('recipe__ingredients__container__label');
-	// ingredientLabel.classList.add(`checkboxLabel${ingredientId}`);
 
 	const ingredientCheckbox = document.createElement('input');
 	ingredientCheckbox.setAttribute('type', 'checkbox');
 	ingredientCheckbox.id = ingredientId;
 	ingredientCheckbox.classList.add('recipe__ingredients__container__checkbox');
-	// ingredientCheckbox.classList.add(`checkbox${ingredientId}`);
-
-	// ingredientCheckbox.addEventListener('change', () => {
-	// 	ingredientLabel.classList.toggle('cross-out');
-	// });
 
 	ingredientBox.appendChild(ingredientCheckbox);
 	ingredientBox.appendChild(ingredientLabel);

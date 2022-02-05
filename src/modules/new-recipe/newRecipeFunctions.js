@@ -15,6 +15,7 @@ import {
 } from './newRecipeElements.js';
 import { createIngredientDOM } from './newRecipeDOM.js';
 import { createID, updateLocalStorage, saveChangesLocalStorage, populateList } from '/src/index';
+import { searchMobile, searchDesktop } from '../search/searchFunctions';
 
 const openNewRecipeForm = () => {
 	btnNewRecipeMobile.classList.add('hidden');
@@ -52,6 +53,9 @@ const cleanInputsIngredients = () => {
 
 const addNewRecipe = e => {
 	e.preventDefault();
+	searchMobile.value = '';
+	searchDesktop.value = '';
+
 	if (btnNewRecipeSave.value === 'Save Changes') {
 		saveEditingChanges(e);
 		return;
@@ -83,8 +87,12 @@ const addNewRecipe = e => {
 
 const openSavedRecipe = recipe => {
 	const recipeElement = document.querySelectorAll(`#${recipe.id}`);
+	const arrowImg = document.querySelectorAll(`.summaryImg${recipe.id}`);
 	recipeElement.forEach(element => {
 		element.setAttribute('open', true);
+	});
+	arrowImg.forEach(img => {
+		img.classList.toggle('dropdown--opened');
 	});
 };
 
@@ -113,6 +121,8 @@ const cleanInputsAndLists = () => {
 // EDIT RECIPE /////////////////////////////////////////////////
 
 const enableEditingForm = recipe => {
+	searchMobile.value = '';
+	searchDesktop.value = '';
 	newRecipeHeader.textContent = 'Edit Recipe';
 	if (!formNewRecipes.classList.contains('visible')) {
 		formNewRecipes.classList.add('visible');

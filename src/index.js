@@ -72,7 +72,7 @@ const searchInStorage = (keyword, id, e) => {
 			if (recipe.name.toLowerCase().includes(keyword.trim())) return recipe;
 
 			for (const key in recipe.ingredients) {
-				if (recipe.ingredients[key].includes(keyword.trim())) return recipe;
+				if (recipe.ingredients[key].toLowerCase().includes(keyword.trim())) return recipe;
 			}
 		});
 		recipeFunctions.cleanRecipesList();

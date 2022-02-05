@@ -44,6 +44,10 @@ body {
 	border-radius: 8px;
 	padding: 0.5rem 0.5rem 0.5rem 0.4rem;
 
+	@media screen and (min-height: 568px) and (min-width: 1025px) {
+		padding: 0.7vh 0.7vh 0.7vh 0.6vh;
+	}
+
 	&--search {
 		border: 1px solid $section-dark;
 	}
@@ -84,7 +88,6 @@ body {
 	}
 	&--add {
 		width: 100%;
-
 		margin-top: 0.4rem;
 		margin-bottom: 0.3rem;
 	}

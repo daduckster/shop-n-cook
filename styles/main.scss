@@ -1,11 +1,9 @@
 @import './_variables';
 @import './global.scss';
-@import './empty.scss';
 @import './with-recipes.scss';
 @import './new-recipe';
 
 .hero {
-	// background: linear-gradient($darken, $darken), url('../dist/assets/images/hero-mobile-img.png');
 	background-size: cover;
 	height: fit-content;
 
@@ -193,11 +191,11 @@
 		&__logo-container {
 			top: 0.3rem;
 			h1 {
-				font-size: 1.7rem;
+				font-size: 2rem;
 			}
 			p {
-				width: 90%;
-				font-size: 0.9rem;
+				width: 70%;
+				font-size: 0.8rem;
 			}
 		}
 

@@ -77,3 +77,5 @@ function keywordSearch(e) {
 		searchInStorage(searchInputText, id, e);
 	}
 }
+
+export { searchMobile, searchDesktop };
