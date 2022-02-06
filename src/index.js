@@ -13,10 +13,13 @@ function createID() {
 }
 
 const populateList = () => {
+	recipeFunctions.cleanCheckboxArray();
 	recipeFunctions.cleanRecipesList();
 	recipesInStorage.map(recipe => {
 		recipeItem.createRecipeMobileDOM(recipe);
 	});
+	recipeFunctions.fillCheckboxArray();
+	recipeFunctions.addEventListenersToCheckboxes();
 };
 
 const editRecipe = recipe => {

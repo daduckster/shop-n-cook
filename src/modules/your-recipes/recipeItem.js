@@ -1,5 +1,5 @@
 import { recipesInStorage } from '../new-recipe/newRecipeElements.js';
-import { generateAllIngredients, deleteRecipe } from './recipeFunctions';
+import { generateAllIngredients, deleteRecipe, addEventListenersToCheckboxes } from './recipeFunctions';
 import { editRecipe, sendToTop } from '/src/index';
 
 const recipesContainer = document.querySelectorAll('.main-recipes__recipes-container');
@@ -16,7 +16,7 @@ const createRecipeMobileDOM = recipe => {
 	const ingredientsForm = document.createElement('form');
 	const ingredientsHeader = document.createElement('header');
 	const ingredientsHeaderText = document.createElement('h3');
-	const ingredientsContainer = generateAllIngredients(recipe.ingredients);
+	const ingredientsContainer = generateAllIngredients(recipe.ingredients, recipe.id);
 
 	const instructionsSection = document.createElement('section');
 	const instructionsHeader = document.createElement('header');
