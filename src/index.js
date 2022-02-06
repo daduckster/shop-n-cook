@@ -13,12 +13,12 @@ function createID() {
 }
 
 const populateList = () => {
-	recipeFunctions.cleanCheckboxArray();
+	// recipeFunctions.cleanCheckboxArray();
 	recipeFunctions.cleanRecipesList();
 	recipesInStorage.map(recipe => {
 		recipeItem.createRecipeMobileDOM(recipe);
 	});
-	recipeFunctions.fillCheckboxArray();
+	// recipeFunctions.fillCheckboxArray();
 	recipeFunctions.addEventListenersToCheckboxes();
 };
 
@@ -50,6 +50,7 @@ const updateLocalStorage = newRecipe => {
 	recipesInStorage.unshift(newRecipe);
 	localStorage.setItem('recipesInStorage', JSON.stringify(recipesInStorage));
 	newRecipeElements.ingredientsArray.length = 0;
+	recipeFunctions.fillCheckboxArray(newRecipe.id);
 };
 
 const saveChangesLocalStorage = updatedRecipe => {
