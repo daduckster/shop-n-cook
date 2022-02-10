@@ -10,7 +10,7 @@ const createIngredientDOM = newIngredient => {
 	imgIngredient.classList.add('new-recipe__remove-icon');
 	pIngredient.classList.add('pIngredient');
 
-	imgIngredient.src = '/dist/assets/icons/icon-remove.svg';
+	imgIngredient.src = './assets/icons/icon-remove.svg';
 	imgIngredient.alt = 'icon with minus in circle';
 	imgIngredient.ariaLabel = 'remove ingredient from the list';
 
