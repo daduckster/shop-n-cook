@@ -67,8 +67,8 @@ const createRecipeMobileDOM = recipe => {
 
 	recipeSendToTopBtn.textContent = 'Send to Top';
 	recipeSendToTopBtn.ariaLabel = 'button to pin recipe to the top of your list';
-	recipeEditBtn.src = '/dist/assets/icons/icon-edit.svg';
-	recipeDeleteBtn.src = '/dist/assets/icons/icon-delete.svg';
+	recipeEditBtn.src = './assets/icons/icon-edit.svg';
+	recipeDeleteBtn.src = './assets/icons/icon-delete.svg';
 
 	// APPENDING ////////////////////////////////////////////////
 
