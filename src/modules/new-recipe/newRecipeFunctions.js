@@ -16,6 +16,7 @@ import {
 import { createIngredientDOM } from './newRecipeDOM.js';
 import { createID, updateLocalStorage, saveChangesLocalStorage, populateList } from '/src/index';
 import { searchMobile, searchDesktop } from '../search/searchFunctions';
+import { addEventListenersToCheckboxes } from '../your-recipes/recipeFunctions';
 
 const openNewRecipeForm = () => {
 	btnNewRecipeMobile.classList.add('hidden');
@@ -165,6 +166,7 @@ const saveEditingChanges = e => {
 		btnNewRecipeMobile.classList.remove('hidden');
 		formNewRecipes.classList.remove('visible');
 		populateList();
+
 		openSavedRecipe(updatedRecipe);
 	}
 };

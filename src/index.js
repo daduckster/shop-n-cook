@@ -17,13 +17,17 @@ const populateList = () => {
 	recipesInStorage.map(recipe => {
 		recipeItem.createRecipeMobileDOM(recipe);
 	});
-	// recipeFunctions.fillCheckboxArray();
+	recipeFunctions.synchCheckboxes();
 	recipeFunctions.addEventListenersToCheckboxes();
 };
 
 const editRecipe = recipe => {
+	if (newRecipeElements.newRecipeHeader.textContent === 'Edit Recipe') {
+		return;
+	}
 	const recipeToEdit = recipesInStorage.find(recipeInStorage => recipeInStorage.id === recipe.id);
 	newRecipeFunctions.enableEditingForm(recipeToEdit);
+	recipeFunctions.removeCheckboxesFromLocalStorage(recipe);
 };
 
 const deleteRecipe = recipe => {
@@ -33,6 +37,7 @@ const deleteRecipe = recipe => {
 	if (searchFunctions.searchMobile.value !== '') {
 		searchFunctions.keywordSearch(e);
 	}
+	recipeFunctions.removeCheckboxesFromLocalStorage(recipe);
 	populateList();
 };
 
@@ -60,6 +65,7 @@ const saveChangesLocalStorage = updatedRecipe => {
 	recipesInStorage[recipeToChange].id = updatedRecipe.id;
 	localStorage.setItem('recipesInStorage', JSON.stringify(recipesInStorage));
 	newRecipeElements.ingredientsArray.length = 0;
+	recipeFunctions.fillCheckboxArray(updatedRecipe.id);
 };
 
 const searchInStorage = (keyword, id, e) => {

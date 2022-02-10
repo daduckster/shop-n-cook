@@ -38,7 +38,6 @@ const createIngredientBox = (ingredient, ingredientsContainer, id) => {
 	ingredientsContainer.appendChild(ingredientBox);
 
 	randomNumber++;
-	// return ingredientId;
 };
 
 const generateAllIngredients = (ingredients, id) => {
@@ -47,8 +46,6 @@ const generateAllIngredients = (ingredients, id) => {
 	const ingredientsContainer = document.createElement('div');
 	ingredientsArray.forEach(ingredient => {
 		createIngredientBox(ingredient, ingredientsContainer, id);
-		// const id = createIngredientBox(ingredient, ingredientsContainer);
-		// fillCheckboxArray(id);
 	});
 
 	return ingredientsContainer;
@@ -68,6 +65,7 @@ const fillCheckboxArray = id => {
 		});
 		setCheckboxLocalStorage();
 	}, 400);
+	console.log(checkboxArray);
 };
 
 const setCheckboxLocalStorage = () => {
@@ -83,6 +81,34 @@ const addEventListenersToCheckboxes = () => {
 			refreshStatus(checkbox);
 		});
 	});
+};
+
+const synchCheckboxes = () => {
+	const checkboxes = document.querySelectorAll('.recipe__ingredients__container__checkbox');
+	checkboxes.forEach(checkbox => {
+		checkboxStatus.forEach(element => {
+			element.forEach(ingredient => {
+				if (ingredient[0] === checkbox.id) {
+					if (ingredient[1] === 'unchecked') {
+						checkbox.checked = false;
+					} else if (ingredient[1] === 'checked') {
+						checkbox.checked = true;
+					}
+				}
+			});
+		});
+	});
+};
+
+const removeCheckboxesFromLocalStorage = recipe => {
+	const id = recipe.id;
+	for (let i = 0; i < checkboxStatus.length; i++) {
+		if (checkboxStatus[i].join('').includes(id)) {
+			checkboxStatus.splice(i, 1);
+		}
+	}
+
+	localStorage.setItem('checkboxStatus', JSON.stringify(checkboxStatus));
 };
 
 const refreshStatus = checkbox => {
@@ -110,4 +136,6 @@ export {
 	addEventListenersToCheckboxes,
 	cleanCheckboxArray,
 	fillCheckboxArray,
+	synchCheckboxes,
+	removeCheckboxesFromLocalStorage,
 };
