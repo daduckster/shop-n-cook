@@ -60,19 +60,12 @@ const cleanCheckboxArray = () => {
 
 const fillCheckboxArray = id => {
 	setTimeout(() => {
-		// checkboxArray.push([ id, 'unchecked' ]);
 		const checkboxes = document.querySelectorAll('.recipe__ingredients__container__checkbox');
-		// console.log('new', id);
 		checkboxes.forEach(checkbox => {
-			// console.log('checkbox', checkbox.id);
 			if (checkbox.id.toString().includes(id)) {
 				checkboxArray.push([ checkbox.id, 'unchecked' ]);
-				// console.log(checkboxArray);
 			}
 		});
-		// checkboxes.forEach(checkbox => {
-		// 	checkboxArray.push([ checkbox.id, 'unchecked' ]);
-		// });
 		setCheckboxLocalStorage();
 	}, 400);
 };
@@ -82,10 +75,6 @@ const setCheckboxLocalStorage = () => {
 	localStorage.setItem('checkboxStatus', JSON.stringify(checkboxStatus));
 	checkboxArray = [];
 };
-
-// const cleanCheckboxLocalStorage = () => {
-// 	localStorage.removeItem('checkboxStatus', JSON.stringify(checkboxStatus));
-// };
 
 const addEventListenersToCheckboxes = () => {
 	const checkboxes = document.querySelectorAll('.recipe__ingredients__container__checkbox');
@@ -97,33 +86,21 @@ const addEventListenersToCheckboxes = () => {
 };
 
 const refreshStatus = checkbox => {
-	// console.log(checkbox.id);
-	const neededCheckbox = checkboxStatus.map(element => {
-		return element.map(recipe => {
-			if (recipe[0] === checkbox.id) {
-				// console.log(recipe);
-				return recipe;
-				// recipe.forEach(r => {
-				// 	if (r[1] === 'checked') {
-				// 		r[1] = 'unchecked';
-				// 	} else if (r[1] === 'unchecked') {
-				// 		r[1] = 'checked';
-				// 	}
-				// });
+	const updatedCheckboxes = [ ...checkboxStatus ];
+
+	updatedCheckboxes.forEach(element => {
+		element.forEach(ingredient => {
+			if (ingredient[0] === checkbox.id) {
+				if (ingredient[1] === 'unchecked') {
+					ingredient[1] = 'checked';
+				} else if (ingredient[1] === 'checked') {
+					ingredient[1] = 'unchecked';
+				}
 			}
 		});
 	});
-	console.log(neededCheckbox);
-	// if (neededCheckbox[0][1] === 'checked' && neededCheckbox[1][1] === 'checked') {
-	// 	neededCheckbox[0][1] = 'unchecked';
-	// 	neededCheckbox[1][1] = 'unchecked';
-	// } else if (neededCheckbox[0][1] === 'unchecked' && neededCheckbox[1][1] === 'unchecked') {
-	// 	neededCheckbox[0][1] = 'checked';
-	// 	neededCheckbox[1][1] = 'checked';
-	// }
-	localStorage.setItem('checkboxStatus', JSON.stringify(checkboxStatus));
 
-	// console.log(neededCheckbox);
+	localStorage.setItem('checkboxStatus', JSON.stringify(updatedCheckboxes));
 };
 
 export {
