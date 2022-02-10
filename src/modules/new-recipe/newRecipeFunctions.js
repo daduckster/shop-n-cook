@@ -16,7 +16,7 @@ import {
 import { createIngredientDOM } from './newRecipeDOM.js';
 import { createID, updateLocalStorage, saveChangesLocalStorage, populateList } from '/src/index';
 import { searchMobile, searchDesktop } from '../search/searchFunctions';
-import { addEventListenersToCheckboxes } from '../your-recipes/recipeFunctions';
+import { removeCheckboxesFromLocalStorage } from '../your-recipes/recipeFunctions';
 
 const openNewRecipeForm = () => {
 	btnNewRecipeMobile.classList.add('hidden');
@@ -122,6 +122,9 @@ const cleanInputsAndLists = () => {
 // EDIT RECIPE /////////////////////////////////////////////////
 
 const enableEditingForm = recipe => {
+	if (ulIngredientContainer.firstChild) {
+		ulIngredientContainer.innerHTML = '';
+	}
 	searchMobile.value = '';
 	searchDesktop.value = '';
 	newRecipeHeader.textContent = 'Edit Recipe';
@@ -165,6 +168,7 @@ const saveEditingChanges = e => {
 		cleanInputsAndLists();
 		btnNewRecipeMobile.classList.remove('hidden');
 		formNewRecipes.classList.remove('visible');
+		removeCheckboxesFromLocalStorage(btnNewRecipeSave);
 		populateList();
 
 		openSavedRecipe(updatedRecipe);

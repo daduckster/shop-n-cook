@@ -40,6 +40,8 @@ const createRecipeMobileDOM = recipe => {
 
 	instructionsSection.classList.add('recipe__instructions');
 
+	instructionsP.classList.add('recipe__instructions__text');
+
 	recipeBtnContainer.classList.add('recipe__buttons');
 	recipeSendToTopBtn.classList.add('btn');
 	recipeSendToTopBtn.classList.add('btn--send-to-top');

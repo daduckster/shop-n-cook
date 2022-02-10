@@ -84,12 +84,18 @@
 			}
 			&__label {
 				margin-left: 0.7rem;
+				overflow-wrap: break-word;
 			}
 		}
 	}
 
 	&__instructions {
 		margin: 0.7rem;
+
+		&__text {
+			overflow-wrap: break-word;
+			white-space: pre-wrap;
+		}
 	}
 
 	&__buttons {

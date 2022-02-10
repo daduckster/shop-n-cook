@@ -15,9 +15,7 @@ const cleanRecipesList = () => {
 // INGREDIENT-CHECKBOXES ////////////////////////////////////////////////
 
 const createIngredientBox = (ingredient, ingredientsContainer, id) => {
-	// console.log('recipe', id);
 	const ingredientId = `ingredient${id}-${randomNumber}`;
-	// console.log(ingredientId);
 
 	const ingredientBox = document.createElement('div');
 	ingredientBox.classList.add('recipe__ingredients__container__box');
@@ -65,7 +63,6 @@ const fillCheckboxArray = id => {
 		});
 		setCheckboxLocalStorage();
 	}, 400);
-	console.log(checkboxArray);
 };
 
 const setCheckboxLocalStorage = () => {

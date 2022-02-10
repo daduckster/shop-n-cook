@@ -1,5 +1,6 @@
 import { addNewIngredient, addNewRecipe, openNewRecipeForm } from './newRecipeFunctions';
 import { populateList } from '/src/index.js';
+import { searchMobile, searchDesktop } from '../search/searchFunctions';
 
 const inputDishName = document.querySelector('.js-input-dish-name');
 const inputIngredients = document.querySelector('.js-input-ingredients');
@@ -34,6 +35,12 @@ btnAdd.addEventListener('keypress', e => {
 formNewRecipes.addEventListener('submit', e => {
 	addNewRecipe(e);
 	// populateList();
+});
+
+inputDishName.addEventListener('focus', e => {
+	searchMobile.value = '';
+	searchDesktop.value = '';
+	populateList();
 });
 
 btnNewRecipeSave.addEventListener('click', e => {
